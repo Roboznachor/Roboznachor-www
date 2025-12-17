@@ -925,3 +925,35 @@ PATCH 09 – MEDAL SIZE BOOST
     transform: translateY(-18%);
   }
 }
+
+/* =====================================================
+PATCH 10 – HEADER BACKGROUND CLEAN FIX
+===================================================== */
+
+/* header jako czysta warstwa */
+.robo-header {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+/* prawdziwe tło headera */
+.robo-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(10,10,20,0.92) 0%,
+    rgba(10,10,20,0.88) 70%,
+    rgba(10,10,20,0.0) 100%
+  );
+
+  backdrop-filter: blur(6px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.robo-header::before {
+  background: rgba(10,10,20,0.92);
+}
