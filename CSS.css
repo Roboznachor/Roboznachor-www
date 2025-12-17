@@ -1069,3 +1069,28 @@ FINAL HEADER SPACING TUNE (AFTER FONT LOCK)
     margin-right: 70px;
   }
 }
+
+/* =====================================================
+DESKTOP NAV HEIGHT REDUCTION
+===================================================== */
+
+@media (min-width: 769px) {
+  .robo-nav a {
+    padding: 6px 14px;   /* było ~8–10px 16–22px */
+    font-size: 0.9rem;  /* delikatnie mniejsze */
+    line-height: 1.2;
+  }
+
+  .robo-nav {
+    align-items: center;
+  }
+
+  .robo-header,
+  .robo-header-inner {
+    height: 64px; /* wizualnie smukły header */
+  }
+
+  body {
+    padding-top: 64px !important;
+  }
+}
