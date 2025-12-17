@@ -891,3 +891,37 @@ PATCH 08 – MOBILE MEDAL TUNING
     transform: translateY(-10%);
   }
 }
+
+/* =====================================================
+PATCH 09 – REMOVE TOP LINE / GHOST BAR
+===================================================== */
+
+.robo-header {
+  box-shadow: none; /* usuwa pasek-cień */
+}
+
+/* =====================================================
+PATCH 09 – MEDAL HIGHER POSITION
+===================================================== */
+
+.robo-logo {
+  transform: translateY(-32%);
+}
+
+/* =====================================================
+PATCH 09 – MEDAL SIZE BOOST
+===================================================== */
+
+.robo-logo img {
+  height: 240px; /* było ~220 */
+}
+
+@media (max-width: 768px) {
+  .robo-logo img {
+    height: 170px;
+  }
+
+  .robo-logo {
+    transform: translateY(-18%);
+  }
+}
