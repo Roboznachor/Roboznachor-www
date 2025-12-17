@@ -957,3 +957,7 @@ PATCH 10 – HEADER BACKGROUND CLEAN FIX
 .robo-header::before {
   background: rgba(10,10,20,0.92);
 }
+
+.znachor-wrapper {
+  background: #0f0f1a;
+}
