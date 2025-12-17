@@ -892,15 +892,7 @@ PATCH 08 – MOBILE MEDAL TUNING
   }
 }
 
-/* =====================================================
-PATCH 09 – REMOVE TOP LINE / GHOST BAR
-===================================================== */
-
-.robo-header {
-  box-shadow: none; /* usuwa pasek-cień */
-}
-
-/* =====================================================
+/* ====== =====================================================
 PATCH 09 – MEDAL HIGHER POSITION
 ===================================================== */
 
@@ -924,94 +916,4 @@ PATCH 09 – MEDAL SIZE BOOST
   .robo-logo {
     transform: translateY(-18%);
   }
-}
-
-/* =====================================================
-PATCH 10 – HEADER BACKGROUND CLEAN FIX
-===================================================== */
-
-/* header jako czysta warstwa */
-.robo-header {
-  background: transparent;
-  backdrop-filter: none;
-}
-
-/* prawdziwe tło headera */
-.robo-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    180deg,
-    rgba(10,10,20,0.92) 0%,
-    rgba(10,10,20,0.88) 70%,
-    rgba(10,10,20,0.0) 100%
-  );
-
-  backdrop-filter: blur(6px);
-  z-index: -1;
-  pointer-events: none;
-}
-
-.robo-header::before {
-  background: rgba(10,10,20,0.92);
-}
-
-/* =====================================================
-PATCH 11 – REMOVE LIGHT BAND UNDER HEADER (FINAL)
-===================================================== */
-
-/* pierwsza sekcja pod headerem */
-body > *:first-child {
-  position: relative;
-}
-
-/* maska odcinająca prześwit */
-body > *:first-child::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: 0;
-  right: 0;
-  height: 2px;
-
-  background: #0f0f1a; /* kolor tła body */
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* ===============================
-HEADER – REMOVE LIGHT BAND (FINAL FIX)
-================================ */
-
-.robo-header {
-  background: linear-gradient(
-    180deg,
-    rgba(10,10,20,0.98) 0%,
-    rgba(10,10,20,0.96) 70%,
-    rgba(10,10,20,0.92) 100%
-  ) !important;
-
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-
-  box-shadow: none !important;
-}
-
-/* ===============================
-HARD CUT UNDER HEADER (KILLS THE BAND)
-================================ */
-
-/* maska pod headerem */
-.robo-header::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 18px;
-
-  background: #0f0f1a; /* dokładnie kolor body */
-  pointer-events: none;
 }
