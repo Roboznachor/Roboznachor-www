@@ -1054,3 +1054,8 @@ HEADER FONT NORMALIZATION – FIX PAGE SHIFT
   line-height: 1.2;
   letter-spacing: 0;
 }
+
+.robo-nav a {
+  padding: 7px 14px;
+  font-size: 0.9rem;
+}
