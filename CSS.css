@@ -998,3 +998,20 @@ HEADER – REMOVE LIGHT BAND (FINAL FIX)
 
   box-shadow: none !important;
 }
+
+/* ===============================
+HARD CUT UNDER HEADER (KILLS THE BAND)
+================================ */
+
+/* maska pod headerem */
+.robo-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 18px;
+
+  background: #0f0f1a; /* dokładnie kolor body */
+  pointer-events: none;
+}
