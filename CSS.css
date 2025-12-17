@@ -556,3 +556,48 @@ MOBILE
     font-size: .95rem;
   }
 }
+/* =====================================================
+HEADER PATCH v1 – MOBILE SCALE & BALANCE
+ADD AT END OF FILE
+===================================================== */
+
+/* ---------- MOBILE HEADER TUNING ---------- */
+@media (max-width: 768px) {
+
+  /* zmniejszamy wizualną wagę headera */
+  .robo-header-inner {
+    height: 88px; /* było ~110 */
+  }
+
+  /* container węższy i bardziej premium */
+  .robo-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* logo nadal wystaje, ale jest lżejsze */
+  .robo-logo {
+    right: 8px;
+  }
+
+  .robo-logo img {
+    height: 130px; /* było 160 */
+    border-radius: 14px;
+  }
+
+  /* menu – mniejsze, bardziej eleganckie */
+  .robo-nav {
+    gap: 8px;
+  }
+
+  .robo-nav a {
+    font-size: 0.95rem;
+    padding: 7px 13px;
+    border-radius: 20px;
+  }
+
+  /* body offset – dokładnie pod header */
+  body {
+    padding-top: 96px !important;
+  }
+}
