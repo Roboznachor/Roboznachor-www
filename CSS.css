@@ -1029,3 +1029,16 @@ NAV UNDERLINE SLIDE-IN – LUX MICRO-INTERACTION
 .robo-nav a.active::after {
   box-shadow: 0 0 10px rgba(0,212,255,.6);
 }
+
+/* =====================================================
+NAV – REMOVE DEFAULT UNDERLINE (KEEP SLIDE-IN)
+===================================================== */
+
+.robo-nav a {
+  text-decoration: none !important;
+}
+
+.robo-nav a:hover,
+.robo-nav a:focus {
+  text-decoration: none !important;
+}
