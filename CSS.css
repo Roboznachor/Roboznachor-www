@@ -1095,13 +1095,13 @@ DESKTOP NAV HEIGHT REDUCTION
   }
 }
 
-/* FIX: zdjęcie "O mnie" – mobile */
+/* FIX: zdjęcie "O mnie" – TYLKO SEKCJA TREŚCI */
 @media (max-width: 768px) {
 
-  img[alt*="Robo Znachor"] {
-    width: 100% !important;
-    max-width: 320px !important;
-    height: auto !important;
+  .wp-site-blocks img:not(.custom-logo) {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
     display: block;
     margin: 0 auto;
   }
