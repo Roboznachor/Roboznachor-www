@@ -1095,15 +1095,1117 @@ DESKTOP NAV HEIGHT REDUCTION
   }
 }
 
-/* FIX: zdjęcie "O mnie" – TYLKO SEKCJA TREŚCI */
+/*
+Theme Name: Robo Znachor Premium
+Description: Formularz kontaktowy – FINAL (Choice Cards + Lux Button)
+Author: ChatGPT
+Version: 2.2
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* ===============================
+GLOBAL
+================================ */
+html, body {
+max-width: 100%;
+overflow-x: hidden;
+}
+
+body {
+font-family: 'Poppins', sans-serif;
+background: #0f0f1a;
+color: #e0e0e0;
+margin: 0;
+padding-top: 0px;
+}
+
+/* ===============================
+WRAPPER
+================================ */
+.znachor-wrapper {
+max-width: 900px;
+margin: 0 auto;
+padding: 0 14px 40px;
+padding-top: 120px;
+}
+
+.znachor-wrapper * {
+box-sizing: border-box;
+}
+
+/* ===============================
+HEADER
+================================ */
+
+.znachor-header {
+text-align: center;
+margin-bottom: 24px;
+}
+
+.znachor-header h1 {
+font-size: clamp(2rem, 6vw, 3rem);
+color: #00d4ff;
+text-shadow: 0 0 30px rgba(0,212,255,.4);
+}
+
+.znachor-desc {
+font-size: 1.05rem;
+color: #bbb;
+}
+
+/* =====================================================
+HEADER PATCH v1 – FIX MENU + LOGO POSITION
+===================================================== */
+
+/* upewniamy się, że header ma punkt odniesienia */
+.robo-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 9999;
+}
+
+/* wrapper odniesienia dla absolutów */
+.robo-header-inner {
+  position: relative;
+  height: 100px;
+}
+
+/* container tylko dla menu */
+.robo-container {
+  max-width: 880px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* LOGO – zawsze po prawej, poza containerem */
+.robo-logo {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* MENU – WYMUSZENIE WIDOCZNOŚCI */
+.robo-nav {
+  display: flex !important;
+  gap: 10px;
+  z-index: 3;
+}
+
+/* LINKI */
+.robo-nav a {
+  pointer-events: auto;
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .robo-header-inner {
+    height: 110px;
+  }
+
+  .robo-container {
+    padding-left: 16px;
+  }
+
+  .robo-logo {
+    right: 10px;
+  }
+
+  .robo-logo img {
+    height: 160px;
+  }
+
+  body {
+    padding-top: 120px !important;
+  }
+}
+
+/* ===============================
+CARD
+================================ */
+.znachor-card {
+background: rgba(26,26,46,.92);
+border-radius: 26px;
+padding: 24px 20px 28px;
+border: 1px solid rgba(0,212,255,.25);
+box-shadow: 0 18px 50px rgba(0,0,0,.55);
+}
+
+/* ===============================
+INPUTS
+================================ */
+.znachor-form-inner input,
+.znachor-form-inner textarea {
+width: 100%;
+padding: 15px 17px;
+margin-bottom: 14px;
+background: #1a1a2e;
+border: 1px solid rgba(0,212,255,.35);
+border-radius: 14px;
+color: #fff;
+font-size: 1.05rem;
+transition: border-color .2s ease,
+box-shadow .2s ease,
+background .2s ease;
+}
+
+.znachor-form-inner input::placeholder,
+.znachor-form-inner textarea::placeholder {
+color: #888;
+}
+
+.znachor-form-inner input:focus,
+.znachor-form-inner textarea:focus {
+border-color: #00d4ff;
+background: #15152a;
+box-shadow:
+0 0 0 2px rgba(0,212,255,.35),
+0 0 18px rgba(0,212,255,.25);
+outline: none;
+}
+
+.znachor-form-inner textarea {
+min-height: 120px;
+resize: vertical;
+}
+
+/* ===============================
+CHOICE CARDS
+================================ */
+.zn-choice-wrapper {
+display: grid;
+gap: 12px;
+margin: 8px 0 14px;
+}
+
+.zn-choice {
+position: relative;
+display: flex;
+align-items: center;
+padding: 18px;
+border-radius: 16px;
+background: rgba(26,26,46,.75);
+border: 1px solid rgba(0,212,255,.28);
+cursor: pointer;
+transition: all .2s ease;
+}
+
+/* hide native radio */
+.zn-choice input[type="radio"] {
+appearance: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+
+position: absolute;
+inset: 0;
+width: 0;
+height: 0;
+margin: 0;
+padding: 0;
+border: 0;
+opacity: 0;
+pointer-events: none;
+}
+
+.zn-choice-title {
+font-size: 1.05rem;
+font-weight: 600;
+line-height: 1.25;
+}
+
+/* hover */
+.zn-choice:hover {
+border-color: #00d4ff;
+background: rgba(0,212,255,.08);
+}
+
+/* active */
+.zn-choice:has(input:checked) {
+background: rgba(0,212,255,.16);
+border-color: #00d4ff;
+box-shadow:
+0 0 0 2px rgba(0,212,255,.35),
+0 0 26px rgba(0,212,255,.25);
+}
+
+/* checkmark */
+.zn-choice:has(input:checked)::after {
+content: "✓";
+position: absolute;
+top: 50%;
+right: 16px;
+transform: translateY(-50%);
+font-size: 1.1rem;
+font-weight: 700;
+color: #00d4ff;
+}
+
+/* ===============================
+SUBMIT BUTTON (LUX)
+================================ */
+.zn-btn {
+width: 100%;
+margin-top: 18px;
+height: 56px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 5px;
+
+border-radius: 36px;
+font-size: 1.15rem;
+font-weight: 700;
+
+color: #000;
+background: linear-gradient(90deg, #00d4ff, #00ffea);
+border: none;
+cursor: pointer;
+
+transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.zn-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 14px 34px rgba(0,212,255,.55);
+}
+
+.zn-btn-text {
+display: flex;
+align-items: center;
+}
+
+/* arrow – BASE (DESKTOP) */
+.zn-btn-arrow {
+font-size: 1.8em;
+line-height: 1;
+display: flex;
+align-items: center;
+
+transform: translateY(-1px);
+transition: transform .2s ease;
+}
+
+/* hover – DESKTOP */
+.zn-btn:hover .zn-btn-arrow {
+transform: translate(13px, -1px);
+}
+
+/* ===============================
+MOBILE ADJUSTMENTS
+================================ */
+@media (max-width: 600px) {
+.znachor-card {
+padding: 22px 16px 26px;
+}
+
+.zn-btn {
+height: 52px;
+font-size: 1.5rem;
+}
+
+/* arrow – MOBILE BASE */
+.zn-btn-arrow {
+transform: translateY(-6px);
+}
+
+/* hover – MOBILE */
+.zn-btn:hover .zn-btn-arrow {
+transform: translate(13px, -6px);
+}
+}
+/* =====================================================
+CTA SECTION – THIS WAS MISSING 🔥
+===================================================== */
+
+.lux-cta {
+  max-width: 720px;
+  margin: 80px auto;
+  padding: 48px 32px 56px;
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(0,212,255,.12), rgba(0,0,0,0)),
+    rgba(26,26,46,.9);
+  border: 1px solid rgba(0,212,255,.35);
+  box-shadow: 0 30px 90px rgba(0,212,255,.25);
+  text-align: center;
+}
+
+/* eyebrow */
+.lux-cta-eyebrow {
+  font-size: 0.95rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #9be7ff;
+  margin-bottom: 14px;
+}
+
+/* title */
+.lux-cta-title {
+  font-size: clamp(1.8rem,5vw,2.4rem);
+  color: #ffffff;
+  margin-bottom: 38px;
+}
+
+/* buttons wrapper */
+.lux-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: center;
+}
+
+/* base button */
+.cta-btn {
+  width: 100%;
+  max-width: 460px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  border-radius: 999px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* primary */
+.cta-primary {
+  background: linear-gradient(90deg,#00d4ff,#00ffea);
+  color: #000;
+  box-shadow: 0 18px 45px rgba(0,212,255,.55);
+}
+
+/* phone */
+.cta-phone {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(0,212,255,.4);
+  color: #e6f9ff;
+}
+
+/* whatsapp */
+.cta-whatsapp {
+  background: linear-gradient(90deg,#25D366,#6aff9b);
+  color: #000;
+  box-shadow: 0 18px 45px rgba(37,211,102,.55);
+}
+
+/* arrow */
+.cta-arrow {
+  font-size: 1.4em;
+  transform: translateY(-1px);
+}
+
+/* hover */
+.cta-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* ===============================
+MOBILE
+================================ */
+@media (max-width: 600px) {
+  .lux-cta {
+    padding: 36px 18px 44px;
+  }
+
+  .cta-btn {
+    height: 58px;
+    font-size: 1rem;
+  }
+}
+/*   box-shadow: 0 18px 45px rgba(37,211,102,.45);
+}
+
+/* icons & arrow */
+.cta-icon,
+.cta-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.3em;
+  line-height: 1;
+  margin-left: 10px;
+
+  transform: translateY(-1px); /* ← DOKŁADNIE 1px */
+}/* =====================================================
+LUX CTA – POLISHED & CONSISTENT
+===================================================== */
+
+.lux-cta {
+  max-width: 720px;
+  margin: 90px auto;
+  padding: 54px 40px 60px;
+  border-radius: 30px;
+
+  background:
+    radial-gradient(120% 140% at 50% 0%, rgba(0,212,255,.12), transparent 60%),
+    rgba(18,22,40,.92);
+
+  border: 1px solid rgba(0,212,255,.25);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.55),
+    inset 0 0 0 1px rgba(255,255,255,.02);
+
+  text-align: center;
+
+  animation: ctaFadeUp .7s ease-out both;
+}
+
+/* eyebrow */
+.lux-cta-eyebrow {
+  font-size: .85rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(155,231,255,.85);
+  margin-bottom: 18px;
+}
+
+/* title */
+.lux-cta-title {
+  font-size: clamp(1.9rem,5vw,2.5rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 44px;
+  line-height: 1.25;
+}
+
+/* buttons wrapper */
+.lux-cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+}
+
+/* ===============================
+CTA BUTTON – BASE
+================================ */
+.cta-btn {
+  width: 100%;
+  max-width: 460px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  border-radius: 999px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+
+  box-shadow: 0 14px 40px rgba(0,0,0,.35);
+}
+
+/* ===============================
+PRIMARY – FORM
+================================ */
+.cta-primary {
+  background: linear-gradient(90deg,#00d4ff,#00ffea);
+  color: #000;
+}
+
+.cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 50px rgba(0,212,255,.45);
+}
+
+/* ===============================
+PHONE – CALM TECH
+================================ */
+.cta-phone {
+  background: linear-gradient(
+    180deg,
+    rgba(0,180,215,.22),
+    rgba(0,120,160,.18)
+  );
+
+  border: 1px solid rgba(0,212,255,.55);
+  color: #e9fbff;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.04),
+    0 10px 28px rgba(0,140,180,.35);
+
+  backdrop-filter: blur(6px);
+}
+
+.cta-phone:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(0,200,235,.35),
+    rgba(0,140,190,.28)
+  );
+
+  transform: translateY(-3px);
+  box-shadow:
+    0 16px 44px rgba(0,180,220,.45);
+}
+.cta-phone:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(0,212,255,.28),
+    rgba(0,212,255,.14)
+  );
+
+  transform: translateY(-3px);
+  box-shadow:
+    0 16px 42px rgba(0,212,255,.35);
+}
+/* ===============================
+WHATSAPP – CLEAN GREEN
+================================ */
+.cta-whatsapp {
+  background: linear-gradient(90deg,#2adf77,#6aff9b);
+  color: #032b12;
+}
+
+.cta-whatsapp:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(37,211,102,.45);
+}
+
+/* icons & arrow */
+.cta-icon,
+.cta-arrow {
+  font-size: 1.2em;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+/* ===============================
+ANIMATION
+================================ */
+@keyframes ctaFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+MOBILE
+================================ */
+@media (max-width: 600px) {
+  .lux-cta {
+    padding: 42px 20px 48px;
+    margin: 70px 14px;
+  }
+
+  .lux-cta-title {
+    font-size: 1.9rem;
+  }
+
+  .cta-btn {
+    height: 58px;
+    font-size: .95rem;
+  }
+}
+/* =====================================================
+HEADER PATCH v1 – MOBILE SCALE & BALANCE
+ADD AT END OF FILE
+===================================================== */
+
+/* ---------- MOBILE HEADER TUNING ---------- */
 @media (max-width: 768px) {
 
-  .wp-site-blocks img:not(.custom-logo) {
+  /* zmniejszamy wizualną wagę headera */
+  .robo-header-inner {
+    height: 88px; /* było ~110 */
+  }
+
+  /* container węższy i bardziej premium */
+  .robo-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* logo nadal wystaje, ale jest lżejsze */
+  .robo-logo {
+    right: 8px;
+  }
+
+  .robo-logo img {
+    height: 130px; /* było 160 */
+    border-radius: 14px;
+  }
+
+  /* menu – mniejsze, bardziej eleganckie */
+  .robo-nav {
+    gap: 8px;
+  }
+
+  .robo-nav a {
+    font-size: 0.95rem;
+    padding: 7px 13px;
+    border-radius: 20px;
+  }
+
+  /* body offset – dokładnie pod header */
+  body {
+    padding-top: 96px !important;
+  }
+}
+
+/* =====================================================
+HEADER PATCH v2 – FIX MENU COLORS (LUX)
+===================================================== */
+
+.robo-nav a {
+  color: #e6f9ff !important;
+  background: rgba(26,26,46,.75);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.03);
+}
+
+/* hover */
+.robo-nav a:hover {
+  color: #00ffea !important;
+  background: rgba(0,212,255,.18);
+  box-shadow:
+    0 0 18px rgba(0,212,255,.45),
+    inset 0 0 0 1px rgba(255,255,255,.05);
+}
+
+/* active */
+.robo-nav a.active {
+  color: #00ffea !important;
+  background: rgba(0,212,255,.28);
+  box-shadow:
+    0 0 22px rgba(0,212,255,.45),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+}
+/* =====================================================
+HEADER PATCH 05 – LOGO SCALE FIX
+===================================================== */
+
+/* DESKTOP – logo jako akcent, nie hero */
+@media (min-width: 769px) {
+  .robo-logo img {
+    height: 110px;
+    max-height: 110px;
+  }
+
+  .robo-header-inner {
+    height: 90px;
+  }
+
+  body {
+    padding-top: 90px !important;
+  }
+}
+
+/* MOBILE – logo może być większe */
+@media (max-width: 768px) {
+  .robo-logo img {
+    height: 150px;
+  }
+
+  .robo-header-inner {
+    height: 110px;
+  }
+
+  body {
+    padding-top: 120px !important;
+  }
+}
+
+/* =====================================================
+HEADER PATCH 06 – CONTAINER WIDTH
+===================================================== */
+
+.robo-container {
+  max-width: 760px; /* było ~880 */
+}
+
+/* =====================================================
+HEADER PATCH 06 – LOGO SCALE
+===================================================== */
+
+@media (min-width: 769px) {
+  .robo-logo img {
+    height: 135px;   /* było 110 */
+    max-height: 135px;
+  }
+
+  .robo-header-inner {
+    height: 100px;
+  }
+
+  body {
+    padding-top: 100px !important;
+  }
+}
+
+/* =====================================================
+HEADER PATCH 06 – NAV BUTTONS LUX
+===================================================== */
+
+.robo-nav a {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  color: #e6f9ff;
+
+  padding: 10px 22px;
+  border-radius: 999px;
+
+  backdrop-filter: blur(8px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.02),
+    0 6px 18px rgba(0,0,0,.35);
+
+  transition:
+    background .25s ease,
+    box-shadow .25s ease,
+    transform .25s ease;
+}
+
+.robo-nav a:hover {
+  background: rgba(0,212,255,.22);
+  box-shadow:
+    0 0 0 1px rgba(0,212,255,.4),
+    0 10px 28px rgba(0,212,255,.45);
+
+  transform: translateY(-1px);
+}
+
+.robo-nav a.active {
+  background: rgba(0,212,255,.35);
+  color: #ffffff;
+
+  box-shadow:
+    0 0 0 1px rgba(0,212,255,.6),
+    0 12px 32px rgba(0,212,255,.55);
+}
+
+/* =====================================================
+PATCH 07 – HEADER CONTAINER NARROWER
+===================================================== */
+
+.robo-container {
+  max-width: 680px; /* było 760 */
+}
+
+/* =====================================================
+PATCH 07 – NAV BUTTON SIZE REDUCTION
+===================================================== */
+
+.robo-nav a {
+  font-size: 0.95rem;
+  padding: 8px 16px;      /* było 10px 22px */
+  border-radius: 999px;
+}
+
+/* =====================================================
+PATCH 07 – NAV GAP TIGHTER
+===================================================== */
+
+.robo-nav {
+  gap: 8px; /* było ~10 */
+}
+
+/* =====================================================
+PATCH 07 – NAV MAX WIDTH SAFETY
+===================================================== */
+
+.robo-nav {
+  max-width: 520px;
+}
+
+/* =====================================================
+PATCH 08 – HEADER SLIM (BUTTON HEIGHT ONLY)
+===================================================== */
+
+.robo-header {
+  height: 72px; /* tylko na menu */
+}
+
+.robo-header-inner {
+  height: 72px;
+}
+
+/* =====================================================
+PATCH 08 – ALLOW LOGO TO OVERFLOW (MEDAL EFFECT)
+===================================================== */
+
+.robo-header {
+  overflow: visible; /* ← TO JEST NAJWAŻNIEJSZE */
+}
+
+/* =====================================================
+PATCH 08 – MEDAL POSITIONING
+===================================================== */
+
+.robo-logo {
+  top: 50%;
+  transform: translateY(-20%); /* zamiast -50% */
+}
+
+/* =====================================================
+PATCH 08 – MEDAL SHADOW DEPTH
+===================================================== */
+
+.robo-logo img {
+  filter:
+    drop-shadow(0 12px 28px rgba(0,0,0,.55))
+    drop-shadow(0 0 26px rgba(0,212,255,.45));
+}
+
+/* =====================================================
+PATCH 08 – MOBILE MEDAL TUNING
+===================================================== */
+
+@media (max-width: 768px) {
+  .robo-header,
+  .robo-header-inner {
+    height: 64px;
+  }
+
+  .robo-logo {
+    transform: translateY(-10%);
+  }
+}
+
+/* ====== =====================================================
+PATCH 09 – MEDAL HIGHER POSITION
+===================================================== */
+
+.robo-logo {
+  transform: translateY(-32%);
+}
+
+/* =====================================================
+PATCH 09 – MEDAL SIZE BOOST
+===================================================== */
+
+.robo-logo img {
+  height: 240px; /* było ~220 */
+}
+
+@media (max-width: 768px) {
+  .robo-logo img {
+    height: 170px;
+  }
+
+  .robo-logo {
+    transform: translateY(-18%);
+  }
+}
+
+/* =====================================================
+WORDPRESS HEADER WRAPPER – REMOVE VISUAL BAR (SAFE)
+===================================================== */
+
+header.wp-block-template-part {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* czasem pasek siedzi w pseudo-elemencie */
+header.wp-block-template-part::before,
+header.wp-block-template-part::after {
+  display: none !important;
+  content: none !important;
+}
+
+
+/* =====================================================
+PATCH 10.1 – GRADIENT FADE POD HEADEREM
+===================================================== */
+
+.robo-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(15,15,26,0.95),
+    rgba(15,15,26,0)
+  );
+}
+
+/* =====================================================
+PATCH 10.2 – SCROLL EFFECT (SHRINK)
+===================================================== */
+
+.robo-header.is-scrolled {
+  backdrop-filter: blur(10px);
+  background: rgba(10,10,20,0.92);
+}
+
+.robo-header.is-scrolled .robo-header-inner {
+  height: 56px;
+}
+
+.robo-header.is-scrolled .robo-nav a {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+}
+
+/* =====================================================
+PATCH 10.3 – HIDE LOGO ON DESKTOP
+===================================================== */
+
+@media (min-width: 1024px) {
+  .robo-logo {
+    display: none;
+  }
+}
+
+/* =====================================================
+NAV UNDERLINE SLIDE-IN – LUX MICRO-INTERACTION
+===================================================== */
+
+.robo-nav a {
+  position: relative;
+  overflow: hidden; /* bezpieczeństwo */
+}
+
+/* linia */
+.robo-nav a::after {
+  content: '';
+  position: absolute;
+
+  left: 14px;
+  right: 14px;
+  bottom: 6px;
+
+  height: 2px;
+  border-radius: 2px;
+
+  background: linear-gradient(
+    90deg,
+    #00d4ff,
+    #00ffea
+  );
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .28s ease;
+}
+
+/* hover */
+.robo-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* active (aktualna strona) */
+.robo-nav a.active::after {
+  transform: scaleX(1);
+}
+
+/* optional: delikatny glow tylko dla active */
+.robo-nav a.active::after {
+  box-shadow: 0 0 10px rgba(0,212,255,.6);
+}
+
+/* =====================================================
+NAV – REMOVE DEFAULT UNDERLINE (KEEP SLIDE-IN)
+===================================================== */
+
+.robo-nav a {
+  text-decoration: none !important;
+}
+
+.robo-nav a:hover,
+.robo-nav a:focus {
+  text-decoration: none !important;
+}
+
+/* =====================================================
+HEADER FONT NORMALIZATION – FIX PAGE SHIFT
+===================================================== */
+
+/* header NIGDY nie dziedziczy fontów z treści */
+.robo-header,
+.robo-header * {
+  font-family: 'Poppins', sans-serif !important;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+/* =====================================================
+FINAL HEADER SPACING TUNE (AFTER FONT LOCK)
+===================================================== */
+
+.robo-nav a {
+  padding: 7px 14px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .robo-nav {
+    margin-right: 70px;
+  }
+}
+
+/* =====================================================
+DESKTOP NAV HEIGHT REDUCTION
+===================================================== */
+
+@media (min-width: 769px) {
+  .robo-nav a {
+    padding: 6px 14px;   /* było ~8–10px 16–22px */
+    font-size: 0.9rem;  /* delikatnie mniejsze */
+    line-height: 1.2;
+  }
+
+  .robo-nav {
+    align-items: center;
+  }
+
+  .robo-header,
+  .robo-header-inner {
+    height: 64px; /* wizualnie smukły header */
+  }
+
+  body {
+    padding-top: 64px !important;
+  
+/* FIX: ucięte zdjęcia w treści (mobile only) */
+@media (max-width: 768px) {
+
+  .wp-site-blocks main figure,
+  .wp-site-blocks main .wp-block-image,
+  .wp-site-blocks main .wp-block-group {
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
+  }
+
+  .wp-site-blocks main img {
     width: 100%;
-    max-width: 320px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
   }
 
 }
