@@ -701,3 +701,37 @@ HEADER PATCH v2 – FIX MENU COLORS (LUX)
     0 0 22px rgba(0,212,255,.45),
     inset 0 0 0 1px rgba(255,255,255,.08);
 }
+/* =====================================================
+HEADER PATCH 05 – LOGO SCALE FIX
+===================================================== */
+
+/* DESKTOP – logo jako akcent, nie hero */
+@media (min-width: 769px) {
+  .robo-logo img {
+    height: 110px;
+    max-height: 110px;
+  }
+
+  .robo-header-inner {
+    height: 90px;
+  }
+
+  body {
+    padding-top: 90px !important;
+  }
+}
+
+/* MOBILE – logo może być większe */
+@media (max-width: 768px) {
+  .robo-logo img {
+    height: 150px;
+  }
+
+  .robo-header-inner {
+    height: 110px;
+  }
+
+  body {
+    padding-top: 120px !important;
+  }
+}
