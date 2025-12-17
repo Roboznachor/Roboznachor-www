@@ -40,6 +40,7 @@ box-sizing: border-box;
 /* ===============================
 HEADER
 ================================ */
+
 .znachor-header {
 text-align: center;
 margin-bottom: 24px;
@@ -54,6 +55,77 @@ text-shadow: 0 0 30px rgba(0,212,255,.4);
 .znachor-desc {
 font-size: 1.05rem;
 color: #bbb;
+}
+
+/* =====================================================
+HEADER PATCH v1 – FIX MENU + LOGO POSITION
+===================================================== */
+
+/* upewniamy się, że header ma punkt odniesienia */
+.robo-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 9999;
+}
+
+/* wrapper odniesienia dla absolutów */
+.robo-header-inner {
+  position: relative;
+  height: 100px;
+}
+
+/* container tylko dla menu */
+.robo-container {
+  max-width: 880px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* LOGO – zawsze po prawej, poza containerem */
+.robo-logo {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* MENU – WYMUSZENIE WIDOCZNOŚCI */
+.robo-nav {
+  display: flex !important;
+  gap: 10px;
+  z-index: 3;
+}
+
+/* LINKI */
+.robo-nav a {
+  pointer-events: auto;
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .robo-header-inner {
+    height: 110px;
+  }
+
+  .robo-container {
+    padding-left: 16px;
+  }
+
+  .robo-logo {
+    right: 10px;
+  }
+
+  .robo-logo img {
+    height: 160px;
+  }
+
+  body {
+    padding-top: 120px !important;
+  }
 }
 
 /* ===============================
