@@ -1094,3 +1094,16 @@ DESKTOP NAV HEIGHT REDUCTION
     padding-top: 64px !important;
   }
 }
+
+/* FIX: zdjęcie "O mnie" – mobile */
+@media (max-width: 768px) {
+
+  img[alt*="Robo Znachor"] {
+    width: 100% !important;
+    max-width: 320px !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto;
+  }
+
+}
