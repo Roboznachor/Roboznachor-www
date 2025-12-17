@@ -1055,7 +1055,17 @@ HEADER FONT NORMALIZATION – FIX PAGE SHIFT
   letter-spacing: 0;
 }
 
+/* =====================================================
+FINAL HEADER SPACING TUNE (AFTER FONT LOCK)
+===================================================== */
+
 .robo-nav a {
   padding: 7px 14px;
   font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .robo-nav {
+    margin-right: 70px;
+  }
 }
