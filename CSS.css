@@ -837,3 +837,57 @@ PATCH 07 – NAV MAX WIDTH SAFETY
 .robo-nav {
   max-width: 520px;
 }
+
+/* =====================================================
+PATCH 08 – HEADER SLIM (BUTTON HEIGHT ONLY)
+===================================================== */
+
+.robo-header {
+  height: 72px; /* tylko na menu */
+}
+
+.robo-header-inner {
+  height: 72px;
+}
+
+/* =====================================================
+PATCH 08 – ALLOW LOGO TO OVERFLOW (MEDAL EFFECT)
+===================================================== */
+
+.robo-header {
+  overflow: visible; /* ← TO JEST NAJWAŻNIEJSZE */
+}
+
+/* =====================================================
+PATCH 08 – MEDAL POSITIONING
+===================================================== */
+
+.robo-logo {
+  top: 50%;
+  transform: translateY(-20%); /* zamiast -50% */
+}
+
+/* =====================================================
+PATCH 08 – MEDAL SHADOW DEPTH
+===================================================== */
+
+.robo-logo img {
+  filter:
+    drop-shadow(0 12px 28px rgba(0,0,0,.55))
+    drop-shadow(0 0 26px rgba(0,212,255,.45));
+}
+
+/* =====================================================
+PATCH 08 – MOBILE MEDAL TUNING
+===================================================== */
+
+@media (max-width: 768px) {
+  .robo-header,
+  .robo-header-inner {
+    height: 64px;
+  }
+
+  .robo-logo {
+    transform: translateY(-10%);
+  }
+}
