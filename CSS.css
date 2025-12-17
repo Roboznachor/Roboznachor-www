@@ -673,3 +673,31 @@ ADD AT END OF FILE
     padding-top: 96px !important;
   }
 }
+
+/* =====================================================
+HEADER PATCH v2 – FIX MENU COLORS (LUX)
+===================================================== */
+
+.robo-nav a {
+  color: #e6f9ff !important;
+  background: rgba(26,26,46,.75);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.03);
+}
+
+/* hover */
+.robo-nav a:hover {
+  color: #00ffea !important;
+  background: rgba(0,212,255,.18);
+  box-shadow:
+    0 0 18px rgba(0,212,255,.45),
+    inset 0 0 0 1px rgba(255,255,255,.05);
+}
+
+/* active */
+.robo-nav a.active {
+  color: #00ffea !important;
+  background: rgba(0,212,255,.28);
+  box-shadow:
+    0 0 22px rgba(0,212,255,.45),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+}
