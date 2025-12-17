@@ -917,3 +917,20 @@ PATCH 09 – MEDAL SIZE BOOST
     transform: translateY(-18%);
   }
 }
+
+/* =====================================================
+WORDPRESS HEADER WRAPPER – REMOVE VISUAL BAR (SAFE)
+===================================================== */
+
+header.wp-block-template-part {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* czasem pasek siedzi w pseudo-elemencie */
+header.wp-block-template-part::before,
+header.wp-block-template-part::after {
+  display: none !important;
+  content: none !important;
+}
