@@ -735,3 +735,71 @@ HEADER PATCH 05 – LOGO SCALE FIX
     padding-top: 120px !important;
   }
 }
+
+/* =====================================================
+HEADER PATCH 06 – CONTAINER WIDTH
+===================================================== */
+
+.robo-container {
+  max-width: 760px; /* było ~880 */
+}
+
+/* =====================================================
+HEADER PATCH 06 – LOGO SCALE
+===================================================== */
+
+@media (min-width: 769px) {
+  .robo-logo img {
+    height: 135px;   /* było 110 */
+    max-height: 135px;
+  }
+
+  .robo-header-inner {
+    height: 100px;
+  }
+
+  body {
+    padding-top: 100px !important;
+  }
+}
+
+/* =====================================================
+HEADER PATCH 06 – NAV BUTTONS LUX
+===================================================== */
+
+.robo-nav a {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+  color: #e6f9ff;
+
+  padding: 10px 22px;
+  border-radius: 999px;
+
+  backdrop-filter: blur(8px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.02),
+    0 6px 18px rgba(0,0,0,.35);
+
+  transition:
+    background .25s ease,
+    box-shadow .25s ease,
+    transform .25s ease;
+}
+
+.robo-nav a:hover {
+  background: rgba(0,212,255,.22);
+  box-shadow:
+    0 0 0 1px rgba(0,212,255,.4),
+    0 10px 28px rgba(0,212,255,.45);
+
+  transform: translateY(-1px);
+}
+
+.robo-nav a.active {
+  background: rgba(0,212,255,.35);
+  color: #ffffff;
+
+  box-shadow:
+    0 0 0 1px rgba(0,212,255,.6),
+    0 12px 32px rgba(0,212,255,.55);
+}
