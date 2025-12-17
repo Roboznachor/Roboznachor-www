@@ -1042,3 +1042,15 @@ NAV – REMOVE DEFAULT UNDERLINE (KEEP SLIDE-IN)
 .robo-nav a:focus {
   text-decoration: none !important;
 }
+
+/* =====================================================
+HEADER FONT NORMALIZATION – FIX PAGE SHIFT
+===================================================== */
+
+/* header NIGDY nie dziedziczy fontów z treści */
+.robo-header,
+.robo-header * {
+  font-family: 'Poppins', sans-serif !important;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
