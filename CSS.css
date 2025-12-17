@@ -982,3 +982,50 @@ PATCH 10.3 – HIDE LOGO ON DESKTOP
     display: none;
   }
 }
+
+/* =====================================================
+NAV UNDERLINE SLIDE-IN – LUX MICRO-INTERACTION
+===================================================== */
+
+.robo-nav a {
+  position: relative;
+  overflow: hidden; /* bezpieczeństwo */
+}
+
+/* linia */
+.robo-nav a::after {
+  content: '';
+  position: absolute;
+
+  left: 14px;
+  right: 14px;
+  bottom: 6px;
+
+  height: 2px;
+  border-radius: 2px;
+
+  background: linear-gradient(
+    90deg,
+    #00d4ff,
+    #00ffea
+  );
+
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .28s ease;
+}
+
+/* hover */
+.robo-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+/* active (aktualna strona) */
+.robo-nav a.active::after {
+  transform: scaleX(1);
+}
+
+/* optional: delikatny glow tylko dla active */
+.robo-nav a.active::after {
+  box-shadow: 0 0 10px rgba(0,212,255,.6);
+}
