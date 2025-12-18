@@ -2551,3 +2551,303 @@ CTA – Choice Cards
 .choice-card.phone {
   min-height: 96px;
 }
+
+/* ======================================
+   CTA – NAPRAWA WYCHODZENIA POZA CONTAINER
+   ====================================== */
+
+.service-choice {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* kluczowe */
+.service-choice .choice-card {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* zapas bezpieczeństwa dla TT4 */
+.znachor-card {
+  overflow: hidden;
+}
+
+/* ======================================
+   CTA – RÓWNE KARTY (FIX)
+   ====================================== */
+
+.service-choice {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* równa wysokość kart */
+.service-choice .choice-card {
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* lekka korekta typografii */
+.choice-title {
+  margin-bottom: 6px;
+}
+
+.choice-desc {
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* ======================================
+   CTA – IDEALNE WYRÓWNANIE (FINAL FIX)
+   ====================================== */
+
+.service-choice .choice-card {
+  min-height: 120px;
+  padding: 16px 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+/* reset typografii */
+.service-choice .choice-title,
+.service-choice .choice-desc {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+/* kontrola odstępu między tytułem a opisem */
+.service-choice .choice-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* zapobiega „opadaniu” tekstu */
+.service-choice .choice-desc {
+  opacity: 0.9;
+}
+
+/* CTA – korekta optyczna: Zgłoś naprawę wyżej */
+.choice-card.primary {
+  padding-top: 14px;
+  padding-bottom: 18px;
+}
+
+.choice-card.primary .choice-title {
+  transform: translateY(-2px);
+}
+
+.choice-card.primary .choice-desc {
+  transform: translateY(-2px);
+}
+
+.choice-card.primary .choice-desc {
+  opacity: 0.85;
+}
+
+/* =========================
+   CTA – FINAL PATCH
+   ========================= */
+
+/* Wspólna baza kart */
+.service-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.choice-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 100%;
+
+  min-height: 110px;
+  padding: 16px 20px;
+
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+
+  box-sizing: border-box;
+}
+
+/* =========================
+   PRIMARY – Zgłoś naprawę
+   ========================= */
+
+.choice-card.primary {
+  background: linear-gradient(135deg, #00f5e1, #00e0ff);
+  color: #001b1e;
+
+  padding-top: 14px;
+  padding-bottom: 22px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+/* Podniesienie tekstu (finalne) */
+.choice-card.primary .choice-title,
+.choice-card.primary .choice-desc {
+  transform: translateY(-4px);
+}
+
+.choice-card.primary .choice-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.choice-card.primary .choice-desc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Hover – główne CTA */
+.choice-card.primary:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow:
+    0 0 0 1px rgba(0,255,240,0.35),
+    0 12px 30px rgba(0,255,240,0.25);
+  filter: brightness(1.05);
+}
+
+/* =========================
+   SECONDARY – Zadzwoń teraz
+   ========================= */
+
+.choice-card.phone {
+  background: rgba(255,255,255,0.08);
+  color: #ffffff;
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.choice-card.phone .choice-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.choice-card.phone .choice-desc {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* Hover – spokojniejszy */
+.choice-card.phone:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.2),
+    0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* =========================
+   CTA – MICRO FIX
+   ========================= */
+
+/* 1️⃣ ZMNIEJSZENIE „ZGŁOŚ NAPRAWĘ” (minimalnie) */
+.choice-card.primary {
+  min-height: 104px;          /* było 110 */
+  padding-top: 12px;          /* było 14 */
+  padding-bottom: 18px;       /* było 22 */
+}
+
+.choice-card.primary .choice-title,
+.choice-card.primary .choice-desc {
+  transform: translateY(-6px); /* jeszcze ciut wyżej */
+}
+
+/* 2️⃣ HOVER DLA „ZADZWOŃ TERAZ” */
+.choice-card.phone:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.25),
+    0 10px 26px rgba(0,0,0,0.45);
+}
+
+/* =========================
+   CTA – FINAL FIX (RÓWNE KARTY)
+   ========================= */
+
+/* 1️⃣ WSPÓLNE WYMIARY KART */
+.choice-card {
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;          /* 🔒 JEDNA WYSOKOŚĆ DLA OBU */
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* pionowe wycentrowanie */
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* 2️⃣ RESET RÓŻNIC TEKSTU */
+.choice-card .choice-title {
+  margin: 0;
+  line-height: 1.15;
+}
+
+.choice-card .choice-desc {
+  margin-top: 6px;
+  line-height: 1.2;
+}
+
+/* 3️⃣ DROBNA KOREKTA „ZGŁOŚ NAPRAWĘ” (BYŁA ZA DUŻA) */
+.choice-card.primary {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.choice-card.primary .choice-title,
+.choice-card.primary .choice-desc {
+  transform: translateY(-4px); /* tekst optycznie w górę */
+}
+
+/* 4️⃣ ŁADNIEJSZE TŁO DLA „ZADZWOŃ” */
+.choice-card.phone {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.06)
+  );
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 12px 28px rgba(0,0,0,0.45);
+}
+
+/* 5️⃣ HOVER – „ZADZWOŃ” */
+.choice-card.phone:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.10)
+  );
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    0 18px 36px rgba(0,0,0,0.55);
+}
