@@ -3613,3 +3613,7 @@ body {
   max-width: 90%;
   white-space: nowrap;
 }
+
+.services-section {
+  background: transparent !important;
+}
