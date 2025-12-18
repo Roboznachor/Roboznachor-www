@@ -2190,76 +2190,32 @@ DESKTOP NAV HEIGHT REDUCTION
   body {
     padding-top: 64px !important;
 
-/* FIX: obrazy w TREŚCI strony (nie header, nie lo@media (max-width: 768px) {
-
-  .wp-site-blocks main img {
-    width: 100%;
-    max-width: 320px;
-    height: auto !important;
-    max-height: none !important;
-    display: block;
-    margin: 0 auto;
-    border-radius: 20px;
-  }
-
-}go) */
+/* =====================================================
+FIX: Zdjęcie "O mnie" – mobile (precyzyjny, bez psucia logo)
+===================================================== */
 @media (max-width: 768px) {
 
-  .wp-site-blocks main img {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 20px;
-  }
-
-}
-  
-/* FIX: ucięte zdjęcia w treści (mobile only) */
-@media (max-width: 768px) {
-
-  .wp-site-blocks main figure,
-  .wp-site-blocks main .wp-block-image,
-  .wp-site-blocks main .wp-block-group {
+  /* tylko cover w treści, nie header */
+  main .wp-block-cover {
     overflow: visible !important;
-    max-height: none !important;
-    height: auto !important;
-  }
-
-  .wp-site-blocks main img {
-    width: 100%;
-    height: auto !important;
-    max-height: none !important;
-    object-fit: contain !important;
-  }
-
-}
-
-/* FIX: ucięte zdjęcie "O mnie" – WordPress Cover / Group */
-@media (max-width: 768px) {
-
-  main .wp-block-cover,
-  main .wp-block-group,
-  main .wp-block-column {
     min-height: unset !important;
     height: auto !important;
-    aspect-ratio: unset !important;
-    overflow: visible !important;
   }
 
   main .wp-block-cover__inner-container {
-    height: auto !important;
     min-height: unset !important;
-  }
-
-}
-
-@media (max-width: 768px) {
-  main .wp-block-cover img {
-    object-fit: contain !important;
-    position: relative !important;
     height: auto !important;
-    max-height: none !important;
   }
+
+  /* TYLKO obrazy w coverze treści */
+  main .wp-block-cover .wp-block-image img {
+    width: 100%;
+    max-width: 320px;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+
 }
