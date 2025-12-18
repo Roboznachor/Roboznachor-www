@@ -2187,32 +2187,33 @@ DESKTOP NAV HEIGHT REDUCTION
   body {
     padding-top: 64px !important;}
 }
+
+
 /* =====================================================
-FIX: Zdjęcie "O mnie" – mobile (precyzyjny, bez psucia logo)
+ABOUT PHOTO – FINAL, CLEAN & SAFE
 ===================================================== */
+
+/* desktop + mobile */
+main div[style*="text-align: center"] img {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 24px;
+}
+
+/* mobile only */
 @media (max-width: 768px) {
 
-  /* tylko cover w treści, nie header */
-  main .wp-block-cover {
-    overflow: visible !important;
-    min-height: unset !important;
-    height: auto !important;
+  /* kontener treści */
+  main div[style*="max-width: 1000px"] {
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow-x: hidden;
   }
 
-  main .wp-block-cover__inner-container {
-    min-height: unset !important;
-    height: auto !important;
+  /* zdjęcie – zabijamy inline max-width */
+  main div[style*="text-align: center"] img {
+    width: 100% !important;
+    max-width: 100% !important;
   }
-
-  /* TYLKO obrazy w coverze treści */
-  main .wp-block-cover .wp-block-image img {
-    width: 100%;
-    max-width: 320px;
-    height: auto !important;
-    object-fit: contain !important;
-    display: block;
-    margin: 0 auto;
-    border-radius: 20px;
-  }
-
 }
