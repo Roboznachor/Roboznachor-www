@@ -2498,3 +2498,250 @@ TEKST
 .choice-card.phone .choice-desc {
   transform: translateY(0);
 }
+
+/* =====================================================
+MOBILE MENU – 4 ITEMS FIT
+===================================================== */
+
+@media (max-width: 768px) {
+
+  /* ciaśniejszy kontener */
+  .robo-container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  /* menu bliżej siebie */
+  .robo-nav {
+    gap: 6px;
+    margin-right: 64px; /* miejsce na logo */
+    max-width: calc(100% - 64px);
+  }
+
+  /* przyciski menu – slim */
+  .robo-nav a {
+    font-size: 0.82rem;        /* 🔑 mniejsze */
+    padding: 5px 9px;          /* 🔑 węższe */
+    border-radius: 999px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  /* header niższy */
+  .robo-header,
+  .robo-header-inner {
+    height: 58px;
+  }
+
+  body {
+    padding-top: 58px !important;
+  }
+}
+
+/* =====================================================
+HEADER – FIX INITIAL STATE (NO JUMP ON LOAD)
+===================================================== */
+
+/* domyślnie header jak po scrollu */
+.robo-header {
+  backdrop-filter: blur(10px);
+  background: rgba(10,10,20,0.92);
+}
+
+.robo-header-inner {
+  height: 56px;
+}
+
+.robo-nav a {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+}
+
+/* body offset */
+body {
+  padding-top: 56px !important;
+}
+
+/* tylko JEŚLI ktoś chce „hero header” bez scrolla */
+.robo-header:not(.is-scrolled) {
+  transition: none; /* brak animacji skoku */
+}
+
+/* ======================================
+   SERVICES SECTION – PREMIUM (FOCUS: ROBOTY)
+   ====================================== */
+
+.services-section {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 16px;
+}
+
+/* ---------- HEADER ---------- */
+
+.services-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.services-title {
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: 700;
+  color: #eaf6ff;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.services-subtitle {
+  font-size: 1.05rem;
+  color: rgba(234,246,255,.75);
+}
+
+/* ---------- GRID ---------- */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ---------- CARD BASE ---------- */
+
+.service-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(22,28,52,.96),
+      rgba(16,20,40,.96)
+    );
+  border-radius: 22px;
+  padding: 32px 26px;
+  border: 1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.55),
+    inset 0 0 0 1px rgba(255,255,255,.02);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+}
+
+/* ---------- SERVICE NAME ---------- */
+
+.service-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #eaf6ff;
+  margin-bottom: 12px;
+}
+
+/* ---------- DESC ---------- */
+
+.service-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(234,246,255,.8);
+}
+
+/* ======================================
+   🔥 FOCUS CARD – ROBOTY SPRZĄTAJĄCE
+   ====================================== */
+
+/* pierwsza karta = główna usługa */
+.services-grid .service-card:first-child {
+  position: relative;
+
+  background:
+    radial-gradient(
+      120% 120% at 50% 0%,
+      rgba(0,212,255,.25),
+      rgba(0,0,0,0) 70%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0,212,255,.18),
+      rgba(16,20,40,.96)
+    );
+
+  border: 1px solid rgba(0,212,255,.45);
+
+  box-shadow:
+    0 30px 80px rgba(0,212,255,.35),
+    inset 0 0 0 1px rgba(255,255,255,.04);
+
+  transform: translateY(-6px);
+}
+
+/* tytuł – mocniejszy */
+.services-grid .service-card:first-child .service-name {
+  color: #00ffea;
+  font-size: 1.55rem;
+}
+
+/* delikatna plakietka */
+.services-grid .service-card:first-child::before {
+  content: "Najczęściej naprawiane";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 6px 14px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+
+  color: #001616;
+  background: linear-gradient(90deg,#00d4ff,#00ffea);
+  border-radius: 999px;
+
+  box-shadow: 0 6px 18px rgba(0,212,255,.45);
+}
+
+/* ---------- HOVER (WSZYSTKIE) ---------- */
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0,212,255,.45);
+
+  box-shadow:
+    0 28px 70px rgba(0,212,255,.25),
+    inset 0 0 0 1px rgba(255,255,255,.05);
+}
+
+/* focus karta ma spokojniejszy hover */
+.services-grid .service-card:first-child:hover {
+  transform: translateY(-8px);
+}
+
+/* ---------- FOOTNOTE ---------- */
+
+.services-footnote {
+  text-align: center;
+  margin-top: 48px;
+  font-size: 1rem;
+  color: rgba(234,246,255,.7);
+  line-height: 1.6;
+}
+
+/* ======================================
+   MOBILE
+   ====================================== */
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .services-grid .service-card:first-child {
+    transform: none;
+  }
+
+  .services-grid .service-card:first-child::before {
+    top: -10px;
+  }
+}
