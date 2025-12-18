@@ -2217,3 +2217,140 @@ main div[style*="text-align: center"] img {
     max-width: 100% !important;
   }
 }
+
+/* =====================================================
+SERVICE PAGE – PREMIUM LAYOUT (CLEAN FINAL)
+===================================================== */
+
+.service-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 16px 80px;
+}
+
+/* ===============================
+SEKCJE / KARTY
+================================ */
+
+.service-page .wp-block-group,
+.service-page section {
+  margin-bottom: 36px; /* ← ODSTĘP MIĘDZY CONTAINERAMI */
+}
+
+.service-page .wp-block-group__inner-container {
+  padding: 34px 28px;
+}
+
+/* karta – premium */
+.service-page .wp-block-group {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(22,28,52,.96),
+      rgba(16,20,40,.96)
+    );
+  border-radius: 26px;
+  border: 1px solid rgba(0,212,255,.18);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.55),
+    inset 0 0 0 1px rgba(255,255,255,.02);
+}
+
+/* ===============================
+TEKST
+================================ */
+
+.service-page h1,
+.service-page h2 {
+  color: #eaf6ff;
+  letter-spacing: -0.01em;
+}
+
+.service-page h1 {
+  font-size: clamp(2.2rem, 6vw, 3rem);
+  margin-bottom: 18px;
+}
+
+.service-page h2 {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+}
+
+.service-page p,
+.service-page li {
+  color: rgba(234,246,255,.92);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.service-page strong {
+  color: #ffffff;
+}
+
+/* listy – czytelniej */
+.service-page ul {
+  margin-top: 18px;
+  padding-left: 20px;
+}
+
+.service-page li {
+  margin-bottom: 10px;
+}
+
+/* ===============================
+CTA / PRZYCISKI NA DOLE
+================================ */
+
+.service-page .lux-cta {
+  margin-top: 80px;
+  padding: 56px 32px 64px;
+}
+
+.service-page .lux-cta-actions {
+  gap: 32px;
+}
+
+/* Zgłoś naprawę */
+.service-page .cta-primary {
+  font-size: 1.15rem;
+  height: 62px;
+}
+
+/* WhatsApp */
+.service-page .cta-whatsapp {
+  height: 58px;
+  font-size: 1.05rem;
+}
+
+/* ===============================
+MOBILE TUNING
+================================ */
+
+@media (max-width: 768px) {
+
+  .service-page {
+    padding: 24px 14px 96px;
+  }
+
+  .service-page .wp-block-group__inner-container {
+    padding: 26px 20px;
+  }
+
+  .service-page .wp-block-group {
+    margin-bottom: 28px;
+    border-radius: 22px;
+  }
+
+  .service-page h1 {
+    font-size: 2.1rem;
+  }
+
+  .service-page h2 {
+    font-size: 1.4rem;
+  }
+
+  .service-page .lux-cta {
+    margin-top: 64px;
+    padding: 44px 22px 56px;
+  }
+}
