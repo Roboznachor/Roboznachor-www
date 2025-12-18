@@ -2168,7 +2168,6 @@ FINAL HEADER SPACING TUNE (AFTER FONT LOCK)
 /* =====================================================
 DESKTOP NAV HEIGHT REDUCTION
 ===================================================== */
-
 @media (min-width: 769px) {
   .robo-nav a {
     padding: 6px 14px;   /* było ~8–10px 16–22px */
@@ -2186,8 +2185,8 @@ DESKTOP NAV HEIGHT REDUCTION
   }
 
   body {
-    padding-top: 64px !important;
-
+    padding-top: 64px !important;}
+}
 /* =====================================================
 FIX: Zdjęcie "O mnie" – mobile (precyzyjny, bez psucia logo)
 ===================================================== */
