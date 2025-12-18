@@ -2297,141 +2297,257 @@ TEKST
   margin-bottom: 10px;
 }
 
-/* =====================================================
-SERVICE CTA – FORM + PHONE (NO WHATSAPP)
-===================================================== */
+/* ==============================
+CTA – Choice Cards
+============================== */
 
-.service-cta {
-  max-width: 760px;
-  margin: 96px auto 120px;
-  padding: 56px 32px 64px;
-
-  text-align: center;
-
-  background:
-    radial-gradient(120% 140% at 50% 0%, rgba(0,212,255,.12), transparent 60%),
-    rgba(16,20,40,.95);
-
-  border-radius: 30px;
-  border: 1px solid rgba(0,212,255,.25);
-
-  box-shadow:
-    0 30px 80px rgba(0,0,0,.6),
-    inset 0 0 0 1px rgba(255,255,255,.02);
-}
-
-/* eyebrow */
-.service-cta-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: .18em;
-  font-size: .8rem;
-  color: rgba(155,231,255,.85);
-  margin-bottom: 16px;
-}
-
-/* title */
-.service-cta h2 {
-  font-size: clamp(1.9rem, 5vw, 2.4rem);
-  color: #ffffff;
-  margin-bottom: 42px;
-  line-height: 1.25;
-}
-
-/* actions */
-.service-cta-actions {
+.service-choice {
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
 }
 
-/* MAIN CTA */
-.cta-main {
-  width: 100%;
-  max-width: 420px;
-  height: 62px;
+.choice-card {
+  display: block;
+  padding: 18px 20px;
+  border-radius: 18px;
+  text-decoration: none;
+  text-align: center;
+  transition: all .25s ease;
+}
+
+/* PRIMARY */
+.choice-card.primary {
+  background: linear-gradient(135deg, #00eaff, #00ffd0);
+  color: #001b1f;
+  box-shadow: 0 12px 30px rgba(0,212,255,0.35);
+}
+
+/* SECONDARY */
+.choice-card.secondary {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,212,255,0.35);
+  color: #e0faff;
+}
+
+/* TEXT */
+.choice-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.choice-desc {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* DESKTOP HOVER */
+@media (hover: hover) {
+  .choice-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ================================
+   CTA – CHOICE CARDS (FINAL PATCH)
+   ================================ */
+
+/* CTA wrapper – premium tło */
+.znachor-card .service-choice {
+  margin-top: 32px;
+  padding: 24px 20px;
+  border-radius: 28px;
+
+  background:
+    radial-gradient(
+      120% 120% at 50% 0%,
+      rgba(0, 255, 240, 0.12),
+      rgba(0, 0, 0, 0) 70%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.01)
+    );
 
   display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.06),
+    0 20px 50px rgba(0,0,0,0.45);
+}
+
+/* Safety: usuwanie pustych kart */
+.service-choice > .choice-card:empty {
+  display: none !important;
+}
+
+/* Wspólna baza kart */
+.choice-card {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
 
-  border-radius: 999px;
-  font-size: 1.1rem;
+  text-align: center;
+  text-decoration: none !important;
+
+  padding: 16px 18px;
+  border-radius: 18px;
+
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* PRIMARY – Zgłoś naprawę */
+.choice-card.primary {
+  background: linear-gradient(135deg, #00f0ff, #00ffd5);
+  color: #001616;
+
+  box-shadow:
+    0 12px 30px rgba(0,255,230,0.35),
+    inset 0 -2px 0 rgba(0,0,0,0.15);
+}
+
+.choice-card.primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 40px rgba(0,255,230,0.45);
+}
+
+/* PHONE – Zadzwoń teraz */
+.choice-card.phone {
+  background: rgba(255,255,255,0.04);
+  color: #ffffff;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.18),
+    0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Teksty w kartach – idealne wycentrowanie */
+.choice-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.choice-desc {
+  margin-top: 4px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* Mobile safety – WhatsApp bubble */
+@media (max-width: 768px) {
+  .znachor-card {
+    margin-bottom: 80px;
+  }
+}
+
+/* ======================================
+   TT4 FIX – CTA / CHOICE CARDS CLEANUP
+   ====================================== */
+
+/* Reset stylów linków TT4 w CTA */
+.service-choice a {
+  all: unset;
+  display: block;
+  cursor: pointer;
+}
+
+/* Przywrócenie poprawnego layoutu */
+.service-choice .choice-card {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  text-decoration: none !important;
+
+  padding: 16px 18px;
+  border-radius: 18px;
+  margin: 0;
+
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+/* Usunięcie WSZYSTKICH pustych elementów */
+.service-choice > *:not(.choice-card) {
+  display: none !important;
+}
+
+.service-choice .choice-card:empty {
+  display: none !important;
+}
+
+/* Primary */
+.choice-card.primary {
+  background: linear-gradient(135deg, #00f0ff, #00ffd5);
+  color: #001616;
+
+  box-shadow:
+    0 12px 30px rgba(0,255,230,0.35),
+    inset 0 -2px 0 rgba(0,0,0,0.15);
+}
+
+/* Phone */
+.choice-card.phone {
+  background: rgba(255,255,255,0.05);
+  color: #ffffff;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.18),
+    0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Spacing – koniec z wielkimi dziurami */
+.znachor-card .service-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ======================================
+   CTA – RÓWNE KARTY
+   ====================================== */
+
+.service-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* WYMUSZENIE TEJ SAMEJ WYSOKOŚCI */
+.service-choice .choice-card {
+  min-height: 96px;          /* 👈 kluczowe */
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Ujednolicenie typografii */
+.choice-title {
+  font-size: 1.05rem;
   font-weight: 700;
-
-  color: #000;
-  background: linear-gradient(90deg, #00d4ff, #00ffea);
-
-  text-decoration: none;
-
-  box-shadow: 0 18px 45px rgba(0,212,255,.55);
-  transition: transform .25s ease, box-shadow .25s ease;
+  line-height: 1.2;
 }
 
-.cta-main:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 22px 55px rgba(0,212,255,.65);
+.choice-desc {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-top: 4px;
 }
 
-/* SECONDARY CTA */
-.cta-secondary {
-  font-size: 1rem;
-  color: #e6f9ff;
-  text-decoration: none;
-
-  padding-bottom: 2px;
-  border-bottom: 1px solid rgba(0,212,255,.4);
-}
-
-.cta-secondary:hover {
-  color: #00ffea;
-  border-color: #00ffea;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .service-cta {
-    margin: 72px 14px 140px; /* ← miejsce na floating WhatsApp */
-    padding: 44px 22px 56px;
-  }
-
-  .cta-main {
-    height: 58px;
-    font-size: 1rem;
-  }
-}
-
-
-/* ===============================
-MOBILE TUNING
-================================ */
-
-@media (max-width: 768px) {
-
-  .service-page {
-    padding: 24px 14px 96px;
-  }
-
-  .service-page .wp-block-group__inner-container {
-    padding: 26px 20px;
-  }
-
-  .service-page .wp-block-group {
-    margin-bottom: 28px;
-    border-radius: 22px;
-  }
-
-  .service-page h1 {
-    font-size: 2.1rem;
-  }
-
-  .service-page h2 {
-    font-size: 1.4rem;
-  }
-
-  .service-page .lux-cta {
-    margin-top: 64px;
-    padding: 44px 22px 56px;
-  }
+/* PHONE – wizualnie „lżejsza”, ale ta sama wysokość */
+.choice-card.phone {
+  min-height: 96px;
 }
