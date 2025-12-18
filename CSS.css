@@ -2567,29 +2567,28 @@ body {
   transition: none; /* brak animacji skoku */
 }
 
-/* ======================================
-   SERVICES SECTION – PREMIUM (FOCUS: ROBOTY)
-   ====================================== */
+/* =========================================
+   SERVICES – FINAL PREMIUM (STABLE, NO LEAK)
+   ========================================= */
 
+/* SECTION */
 .services-section {
   max-width: 900px;
   margin: 80px auto;
   padding: 0 16px;
 }
 
-/* ---------- HEADER ---------- */
-
+/* HEADER */
 .services-header {
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 56px;
 }
 
 .services-title {
   font-size: clamp(2rem, 5vw, 2.6rem);
   font-weight: 700;
   color: #eaf6ff;
-  margin-bottom: 14px;
-  letter-spacing: -0.01em;
+  margin-bottom: 12px;
 }
 
 .services-subtitle {
@@ -2597,39 +2596,44 @@ body {
   color: rgba(234,246,255,.75);
 }
 
-/* ---------- GRID ---------- */
-
+/* GRID */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 26px;
 }
 
-/* ---------- CARD BASE ---------- */
+/* =====================
+   CARD – BASE
+   ===================== */
 
 .service-card {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(22,28,52,.96),
-      rgba(16,20,40,.96)
-    );
-  border-radius: 22px;
-  padding: 32px 26px;
-  border: 1px solid rgba(255,255,255,.08);
+  position: relative;
+  min-height: 210px;
+  padding: 48px 26px 34px;
+  border-radius: 26px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(20,26,46,.95),
+    rgba(12,16,30,.95)
+  );
 
   box-shadow:
-    0 20px 50px rgba(0,0,0,.55),
-    inset 0 0 0 1px rgba(255,255,255,.02);
+    inset 0 0 0 1px rgba(255,255,255,.06),
+    0 14px 32px rgba(0,0,0,.45);
 
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    border-color .25s ease;
+  text-align: center;
+
+  /* 🔒 kluczowe – zero leak */
+  isolation: isolate;
+  contain: paint;
+  overflow: hidden;
+
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
-/* ---------- SERVICE NAME ---------- */
-
+/* TEXT */
 .service-name {
   font-size: 1.4rem;
   font-weight: 600;
@@ -2637,983 +2641,104 @@ body {
   margin-bottom: 12px;
 }
 
-/* ---------- DESC ---------- */
-
 .service-desc {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.55;
   color: rgba(234,246,255,.8);
 }
 
-/* ======================================
-   🔥 FOCUS CARD – ROBOTY SPRZĄTAJĄCE
-   ====================================== */
+/* =====================
+   FEATURED – ROBOTY
+   ===================== */
 
-/* pierwsza karta = główna usługa */
-.services-grid .service-card:first-child {
-  position: relative;
+.service-card.featured {
+  padding-top: 64px;
 
-  background:
-    radial-gradient(
-      120% 120% at 50% 0%,
-      rgba(0,212,255,.25),
-      rgba(0,0,0,0) 70%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(0,212,255,.18),
-      rgba(16,20,40,.96)
-    );
-
-  border: 1px solid rgba(0,212,255,.45);
+  background: linear-gradient(
+    180deg,
+    rgba(0,212,255,.28),
+    rgba(12,16,30,.95) 65%
+  );
 
   box-shadow:
-    0 30px 80px rgba(0,212,255,.35),
-    inset 0 0 0 1px rgba(255,255,255,.04);
-
-  transform: translateY(-6px);
+    inset 0 0 0 1px rgba(0,212,255,.35),
+    0 18px 40px rgba(0,212,255,.35);
 }
 
-/* tytuł – mocniejszy */
-.services-grid .service-card:first-child .service-name {
+/* BADGE – JEDYNE ŹRÓDŁO */
+.service-card.featured .service-badge {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 6px 16px;
+  font-size: 0.65rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+
+  background: linear-gradient(135deg,#00f0ff,#00ffd5);
+  color: #001616;
+  border-radius: 999px;
+
+  box-shadow: 0 6px 18px rgba(0,255,240,.35);
+  z-index: 2;
+}
+
+/* FEATURED TITLE */
+.service-card.featured .service-name {
   color: #00ffea;
   font-size: 1.55rem;
 }
 
-/* delikatna plakietka */
-.services-grid .service-card:first-child::before {
-  content: "Najczęściej naprawiane";
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  padding: 6px 14px;
-  font-size: .75rem;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-
-  color: #001616;
-  background: linear-gradient(90deg,#00d4ff,#00ffea);
-  border-radius: 999px;
-
-  box-shadow: 0 6px 18px rgba(0,212,255,.45);
-}
-
-/* ---------- HOVER (WSZYSTKIE) ---------- */
+/* =====================
+   HOVER – PREMIUM, SAFE
+   ===================== */
 
 .service-card:hover {
+  transform: translateY(-2px);
+}
+
+.service-card.featured:hover {
   transform: translateY(-4px);
-  border-color: rgba(0,212,255,.45);
-
   box-shadow:
-    0 28px 70px rgba(0,212,255,.25),
-    inset 0 0 0 1px rgba(255,255,255,.05);
+    inset 0 0 0 1px rgba(0,212,255,.45),
+    0 26px 60px rgba(0,212,255,.35);
 }
 
-/* focus karta ma spokojniejszy hover */
-.services-grid .service-card:first-child:hover {
-  transform: translateY(-8px);
+/* =====================
+   LINK NA CAŁĄ KARTĘ
+   ===================== */
+
+.service-card {
+  cursor: pointer;
 }
 
-/* ---------- FOOTNOTE ---------- */
+.service-card .card-overlay-link {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+/* =====================
+   FOOTNOTE
+   ===================== */
 
 .services-footnote {
-  text-align: center;
   margin-top: 48px;
+  text-align: center;
   font-size: 1rem;
   color: rgba(234,246,255,.7);
   line-height: 1.6;
 }
 
-/* ======================================
-   MOBILE
-   ====================================== */
+/* =====================
+   MOBILE – COMPACT
+   ===================== */
 
-@media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .services-grid .service-card:first-child {
-    transform: none;
-  }
-
-  .services-grid .service-card:first-child::before {
-    top: -10px;
-  }
-}
-
-/* ======================================
-   SERVICES – TEXT ALIGNMENT FIX
-   ====================================== */
-
-.service-card {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* tytuły */
-.service-name {
-  margin: 0 0 12px 0;
-  line-height: 1.25;
-}
-
-/* opisy */
-.service-desc {
-  margin: 0;
-  line-height: 1.55;
-}
-
-/* focus card – delikatna korekta optyczna */
-.services-grid .service-card:first-child .service-name {
-  margin-bottom: 14px;
-}
-
-/* mobile – jeszcze czyściej */
-@media (max-width: 768px) {
-  .service-card {
-    padding: 30px 22px;
-  }
-}
-
-/* ======================================
-   SERVICES HEADER – PREMIUM BACKGROUND
-   ====================================== */
-
-.services-header {
-  background:
-    radial-gradient(
-      120% 120% at 50% 0%,
-      rgba(0,212,255,.18),
-      rgba(0,0,0,0) 70%
-    ),
-    linear-gradient(
-      180deg,
-      rgba(22,28,52,.85),
-      rgba(16,20,40,.85)
-    );
-
-  padding: 48px 28px;
-  border-radius: 26px;
-
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.45),
-    inset 0 0 0 1px rgba(255,255,255,.05);
-
-  margin-bottom: 56px;
-}
-
-/* ======================================
-   SERVICES – ENTER ANIMATION
-   ====================================== */
-
-.services-header,
-.service-card {
-  opacity: 0;
-  transform: translateY(14px);
-  animation: fadeLift .7s ease forwards;
-}
-
-.services-header {
-  animation-delay: .05s;
-}
-
-.service-card:nth-child(1) { animation-delay: .15s; }
-.service-card:nth-child(2) { animation-delay: .25s; }
-.service-card:nth-child(3) { animation-delay: .35s; }
-
-@keyframes fadeLift {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* mobile – jeszcze spokojniej */
-@media (max-width: 768px) {
-  .services-header,
-  .service-card {
-    animation-duration: .6s;
-  }
-}
-
-/* ======================================
-   FOCUS CARD – ICON
-   ====================================== */
-
-.service-card:first-child {
-  position: relative;
-  overflow: hidden;
-}
-
-.service-card:first-child::before {
-  content: "🤖";
-  position: absolute;
-  top: 18px;
-  right: 18px;
-
-  font-size: 22px;
-  opacity: .35;
-
-  filter: drop-shadow(0 0 6px rgba(0,255,240,.4));
-}
-
-/* ======================================
-   SERVICES – DIVIDER
-   ====================================== */
-
-.services-header::after {
-  content: "";
-  display: block;
-
-  width: 120px;
-  height: 2px;
-  margin: 28px auto 0;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(0,255,240,.6),
-    transparent
-  );
-
-  opacity: .8;
-}
-
-/* ======================================
-   SERVICES – PREMIUM PATCH (1 + 2 + 3)
-   ====================================== */
-
-/* 1️⃣ ANIMACJA WEJŚCIA – SPOKOJNA, JEDNORAZOWA */
-
-.services-header,
-.service-card {
-  opacity: 0;
-  transform: translateY(14px);
-  animation: servicesFadeLift .7s ease forwards;
-}
-
-.services-header {
-  animation-delay: .05s;
-}
-
-.service-card:nth-child(1) { animation-delay: .15s; }
-.service-card:nth-child(2) { animation-delay: .25s; }
-.service-card:nth-child(3) { animation-delay: .35s; }
-
-@keyframes servicesFadeLift {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .services-header,
-  .service-card {
-    animation-duration: .6s;
-  }
-}
-
-/* 2️⃣ FOCUS NA „ROBOTY SPRZĄTAJĄCE” (IKONA + SUBTELNY AKCENT) */
-
-.service-card:first-child {
-  position: relative;
-  overflow: hidden;
-}
-
-.service-card:first-child::before {
-  content: "🤖";
-  position: absolute;
-  top: 18px;
-  right: 18px;
-
-  font-size: 22px;
-  opacity: .35;
-
-  filter: drop-shadow(0 0 6px rgba(0,255,240,.4));
-}
-
-/* 3️⃣ DIVIDER POD HEADEREM – PREMIUM RYTM */
-
-.services-header::after {
-  content: "";
-  display: block;
-
-  width: 120px;
-  height: 2px;
-  margin: 28px auto 0;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(0,255,240,.6),
-    transparent
-  );
-
-  opacity: .85;
-}
-
-/* ======================================
-   SERVICES – FIX BADGE + RÓWNE KAFLE + KLIK
-   ====================================== */
-
-/* 1️⃣ BADGE „NAJCZĘŚCIEJ NAPRAWIANE” – MNIEJSZE, BEZ NACHODZENIA */
-
-.service-card.featured {
-  position: relative;
-}
-
-.service-card.featured .badge,
-.service-card.featured::after {
-  content: "Najczęściej naprawiane";
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  padding: 6px 14px;
-  font-size: 0.65rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-
-  background: linear-gradient(135deg, #00f0ff, #00ffd5);
-  color: #001616;
-  border-radius: 999px;
-
-  box-shadow: 0 6px 18px rgba(0,255,240,.35);
-  z-index: 2;
-}
-
-/* zapas u góry, żeby NIC nie było ucięte */
-.service-card.featured {
-  padding-top: 42px;
-}
-
-/* 2️⃣ RÓWNA WYSOKOŚĆ KAFELKÓW */
-
-.services-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 22px;
-}
-
-.service-card {
-  min-height: 170px; /* 🔒 wspólna wysokość */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease;
-}
-
-/* 3️⃣ DELIKATNY HOVER – TYLKO ROBOTY (MOŻE BYĆ WIĘKSZY) */
-
-.service-card.featured:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow:
-    0 0 0 1px rgba(0,255,240,.35),
-    0 18px 40px rgba(0,255,240,.25);
-}
-
-/* pozostałe kafle spokojniejsze */
-.service-card:not(.featured):hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(0,0,0,.45);
-}
-
-/* 4️⃣ KLIK KAFELKA → FORMULARZ */
-
-.service-card {
-  cursor: pointer;
-}
-
-.service-card a {
-  all: unset;
-}
-
-/* klik całej karty */
-.service-card {
-  position: relative;
-}
-
-.service-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-}
-
-/* gdzie ma prowadzić klik */
-.service-card {
-  --target-link: "/kontakt/#formularz-kontaktowy";
-}
-
-.service-card::before {
-  pointer-events: auto;
-}
-
-.service-card::before {
-  background: transparent;
-}
-
-.service-card:active {
-  transform: scale(.99);
-}
-
-/* JS-free klik */
-.service-card {
-  pointer-events: auto;
-}
-
-.service-card::before {
-  cursor: pointer;
-}
-
-.service-card::before {
-  content: "";
-}
-
-.service-card {
-  position: relative;
-}
-
-.service-card {
-  isolation: isolate;
-}
-
-.service-card {
-  pointer-events: auto;
-}
-
-.service-card {
-  cursor: pointer;
-}
-
-.service-card {
-  onclick: none;
-}
-
-/* ======================================
-   SERVICES – FINAL FIX (BADGE + PULSE + CLICK)
-   ====================================== */
-
-/* ===== RESET POPRZEDNICH PSEUDO-ELEMENTÓW ===== */
-.service-card::before,
-.service-card::after {
-  content: none !important;
-}
-
-/* ===== WSPÓLNA BAZA KART ===== */
-.service-card {
-  position: relative;
-  min-height: 170px;
-  padding: 36px 26px 28px;
-  text-align: center;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  cursor: pointer;
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease;
-}
-
-/* ===== LINK NA CAŁĄ KARTĘ ===== */
-.service-card a {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  text-indent: -9999px;
-}
-
-/* ===== HOVERY ===== */
-.service-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(0,0,0,.45);
-}
-
-.service-card.featured:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow:
-    0 0 0 1px rgba(0,255,240,.35),
-    0 18px 40px rgba(0,255,240,.25);
-}
-
-/* ======================================
-   BADGE – TYLKO ROBOTY SPRZĄTAJĄCE
-   ====================================== */
-
-.service-card.featured .service-badge {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  padding: 6px 14px;
-  font-size: 0.65rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-
-  background: linear-gradient(135deg, #00f0ff, #00ffd5);
-  color: #001616;
-  border-radius: 999px;
-
-  box-shadow: 0 6px 18px rgba(0,255,240,.35);
-  z-index: 4;
-}
-
-/* zapas miejsca na badge */
-.service-card.featured {
-  padding-top: 48px;
-}
-
-/* ======================================
-   SUBTELNY PULS – TYLKO ROBOTY
-   ====================================== */
-
-@keyframes robotPulse {
-  0% {
-    box-shadow:
-      0 0 0 0 rgba(0,255,240,0.35),
-      0 14px 32px rgba(0,0,0,.45);
-  }
-  70% {
-    box-shadow:
-      0 0 0 14px rgba(0,255,240,0),
-      0 14px 32px rgba(0,0,0,.45);
-  }
-  100% {
-    box-shadow:
-      0 0 0 0 rgba(0,255,240,0),
-      0 14px 32px rgba(0,0,0,.45);
-  }
-}
-
-.service-card.featured {
-  animation: robotPulse 3.5s ease-out infinite;
-}
-
-/* zatrzymanie pulsu na hover (bardziej premium) */
-.service-card.featured:hover {
-  animation: none;
-}
-
-/* ======================================
-   SERVICES – SAFE CLICK FIX (MOBILE)
-   ====================================== */
-
-/* karta jako link */
-.service-card {
-  position: relative;
-}
-
-.service-card-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-/* cała karta klikalna */
-.service-card-link .service-card {
-  cursor: pointer;
-}
-
-/* USUWAMY overlay absolutny */
-.service-card a {
-  position: static !important;
-  inset: auto !important;
-  text-indent: 0 !important;
-}
-
-/* === FIX: znikające karty === */
-.services-section,
-.services-grid {
-  overflow: visible !important;
-}
-
-/* === LINK KARTY === */
-.service-card-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-/* === KARTA === */
-.service-card {
-  position: relative;
-  min-height: 220px;
-  padding: 32px 24px;
-  border-radius: 22px;
-  background: linear-gradient(180deg, #0f2230, #0b1622);
-  box-shadow: 0 0 0 1px rgba(0,212,255,.25);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-/* === FEATURED (roboty) === */
-.service-card.featured {
-  box-shadow:
-    0 0 0 1px rgba(0,212,255,.6),
-    0 0 40px rgba(0,212,255,.25);
-}
-
-/* === BADGE === */
-.service-badge {
-  position: relative;           /* KLUCZOWE */
-  display: inline-block;
-  margin-bottom: 12px;
-  padding: 6px 16px;
-  font-size: 0.75rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: #002;
-  background: #00ffe7;
-  border-radius: 999px;
-}
-
-/* === HOVER / TAP === */
-.service-card-link:active .service-card,
-.service-card-link:hover .service-card {
-  transform: translateY(-4px);
-}
-
-/* === MOBILE STABILNOŚĆ === */
-@media (max-width: 768px) {
-  .service-card {
-    transform: none !important;
-  }
-}
-
-/* === FIX TT4: invisible first card === */
-
-.service-click {
-  position: relative;
-}
-
-.card-overlay-link {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-}
-
-/* wyłącz motywowe display:contents */
-.services-section a {
-  display: block;
-}
-
-/* zabezpieczenie WebKit */
-.services-grid {
-  transform: translateZ(0);
-}
-
-/* featured musi być nad innymi */
-.service-card.featured {
-  z-index: 2;
-}
-
-/* === FIX: pierwszy kafel znika (GRID + FEATURED) === */
-
-.services-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
-}
-
-/* WYMUSZAMY, że KAŻDE dziecko gridu jest grid-itemem */
-.services-grid > * {
-  display: block;
-  position: relative;
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-}
-
-/* Featured nie może wypadać z flow */
-.service-card.featured {
-  position: relative;
-  z-index: 1;
-  margin-top: 0 !important;
-}
-
-/* Overlay link nie może wypychać karty */
-.card-overlay-link {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-}
-
-/* ZABEZPIECZENIE – jeśli była animacja startowa */
-.services-grid > *:first-child {
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-/* ================================
-   PREMIUM FIX – WYKOŃCZENIE
-================================ */
-
-/* 1. PRZYWRACAMY SEPARACJĘ GLOW */
-.services-grid {
-  isolation: isolate;
-}
-
-/* 2. KARTY – NORMALNY ROZMIAR */
-.service-card {
-  padding: 42px 28px 36px;
-  min-height: 260px;
-  transition: transform .35s ease, box-shadow .35s ease;
-}
-
-/* 3. FEATURED – MNIEJSZE, ALE PREMIUM */
-.service-card.featured {
-  padding-top: 56px; /* miejsce na badge */
-  box-shadow:
-    0 0 0 1px rgba(0,212,255,.25),
-    0 20px 50px rgba(0,212,255,.25);
-}
-
-/* 4. GLOW TYLKO DLA FEATURED */
-.service-card:not(.featured) {
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.06),
-    0 10px 30px rgba(0,0,0,.4);
-}
-
-/* 5. SUBTELNY HOVER TYLKO FEATURED */
-.service-card.featured:hover {
-  transform: scale(1.03);
-  box-shadow:
-    0 0 0 1px rgba(0,212,255,.4),
-    0 30px 70px rgba(0,212,255,.35);
-}
-
-/* 6. BADGE – NIEUCIĘTY, ELEGANCKI */
-.service-badge {
-  position: absolute;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 6px 16px;
-  font-size: 0.7rem;
-  border-radius: 999px;
-  z-index: 2;
-}
-
-/* 7. OVERFLOW TYLKO TAM GDZIE TRZEBA */
-.service-card {
-  overflow: hidden;
-}
-.service-card.featured {
-  overflow: visible; /* badge i glow */
-}
-
-/* ================================
-   FINAL PREMIUM FIX – DEFINITYWNY
-================================ */
-
-/* 1. GRID NIGDY NIE DZIEDZICZY GLOW */
-.services-grid {
-  display: grid;
-  gap: 28px;
-  isolation: isolate;
-}
-
-/* 2. KARTY – TWARDY LIMIT ROZMIARU */
-.service-card {
-  position: relative;
-  padding: 36px 26px 34px;
-  min-height: 220px;   /* BYŁO ZA DUŻE */
-  max-height: 260px;
-  overflow: hidden;
-  transform: translateZ(0);
-}
-
-/* 3. FEATURED – BEZ POWIĘKSZANIA CONTAINERA */
-.service-card.featured {
-  padding-top: 52px;
-  overflow: hidden; /* KLUCZOWE */
-}
-
-/* 4. GLOW TYLKO JAKO WEWNĘTRZNY EFEKT */
-.service-card.featured::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background:
-    radial-gradient(
-      120% 80% at 50% 0%,
-      rgba(0,212,255,.28),
-      transparent 60%
-    );
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* 5. USUWAMY WSZYSTKIE STARE AFTER / OVERSIZE */
-.service-card::after {
-  content: none !important;
-}
-
-/* 6. TEKST ZAWSZE NAD GLOW */
-.service-card > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* 7. SUBTELNY HOVER – BEZ ROZLEWANIA */
-.service-card.featured:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    0 18px 40px rgba(0,212,255,.35);
-}
-
-/* 8. BADGE – MIEŚCI SIĘ IDEALNIE */
-.service-badge {
-  top: 14px;
-  font-size: 0.65rem;
-  padding: 6px 14px;
-}
-
-/* 9. MOBILE – JESZCZE MNIEJ */
 @media (max-width: 768px) {
   .service-card {
     min-height: 200px;
-    padding: 32px 22px 30px;
+    padding: 52px 22px 30px;
   }
-}
-
-/* ================================
-   PREMIUM FINAL – NO LEAK, NO CUT
-================================ */
-
-/* GRID */
-.services-grid {
-  display: grid;
-  gap: 26px;
-}
-
-/* KARTA – BAZA */
-.service-card {
-  position: relative;
-  padding: 46px 26px 32px;
-  border-radius: 26px;
-  min-height: 220px;
-  background:
-    linear-gradient(180deg,
-      rgba(0,212,255,0.18),
-      rgba(15,20,40,0.92) 65%);
-  box-shadow:
-    inset 0 0 0 1px rgba(0,212,255,.25),
-    0 12px 30px rgba(0,0,0,.45);
-  overflow: hidden;
-  transition: transform .35s ease, box-shadow .35s ease;
-}
-
-/* FEATURED – TYLKO LEPSZE TŁO */
-.service-card.featured {
-  background:
-    linear-gradient(180deg,
-      rgba(0,212,255,0.35),
-      rgba(15,20,40,0.95) 65%);
-}
-
-/* ZERO pseudo-elementów */
-.service-card::before,
-.service-card::after {
-  content: none !important;
-}
-
-/* HOVER – SUBTELNY, BEZ GLOW LEAK */
-.service-card.featured:hover {
-  transform: translateY(-4px);
-  box-shadow:
-    inset 0 0 0 1px rgba(0,212,255,.45),
-    0 20px 42px rgba(0,212,255,.35);
-}
-
-/* BADGE – ZAWSZE W CAŁOŚCI */
-.service-badge {
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 6px 16px;
-  font-size: 0.65rem;
-  letter-spacing: .12em;
-  border-radius: 999px;
-  background: #00f0e6;
-  color: #002b2b;
-  font-weight: 700;
-  box-shadow: 0 6px 18px rgba(0,240,230,.45);
-}
-
-/* TEKST */
-.service-name {
-  margin-top: 12px;
-}
-
-/* MOBILE – KOMPAKT */
-@media (max-width: 768px) {
-  .service-card {
-    min-height: 200px;
-    padding: 44px 22px 28px;
-  }
-}
-
-.service-card * {
-  filter: none !important;
-}
-/* =================================
-   HARD ISOLATION – KILL GLOW LEAK
-================================= */
-
-/* Izolacja kart od motywu */
-.service-card {
-  contain: paint;
-  isolation: isolate;
-  overflow: clip; /* lepsze niż hidden */
-}
-
-/* Odcięcie wpływu wrapperów TT4 */
-.services-grid,
-.services-section {
-  overflow: visible !important;
-  filter: none !important;
-  backdrop-filter: none !important;
-}
-
-/* Gwarancja braku efektów z zewnątrz */
-.service-card,
-.service-card * {
-  filter: none !important;
-  backdrop-filter: none !important;
-}
-
-/* Kontrola rozmiaru – KONIEC WIELKICH KAFLI */
-.service-card {
-  min-height: 210px;
-  max-height: 240px;
-  padding-top: 52px;
-}
-
-/* Badge NIGDY nie wychodzi */
-.service-badge {
-  top: 14px;
-  max-width: 90%;
-  white-space: nowrap;
-}
-
-.services-section {
-  background: transparent !important;
 }
