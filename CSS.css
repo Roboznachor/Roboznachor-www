@@ -4575,6 +4575,57 @@ TOP SPACING – HOME + O MNIE
 @media (max-width: 768px) {
   .home main,
   .page-id-48 main {
-    padding-top: 32px;
+    padding-top: 70px;
+  }
+}
+
+/* =====================================================
+LOGO – FINAL SCALE & POSITION (DESKTOP + MOBILE)
+===================================================== */
+
+/* 🔓 ZAWSZE WIDOCZNE */
+.robo-logo {
+  display: block !important;
+}
+
+/* =========================
+DESKTOP
+========================= */
+@media (min-width: 769px) {
+
+  .robo-logo {
+    right: 10px;                 /* bardziej w prawo */
+    top: 50%;
+    transform: translateY(1%);  /* lekko „medalowo” nad header */
+  }
+
+  .robo-logo img {
+    height: 400px;                /* ⬅️ WIĘKSZE */
+    max-height: none;
+
+    filter:
+      drop-shadow(0 16px 34px rgba(0,0,0,.6))
+      drop-shadow(0 0 26px rgba(0,212,255,.35));
+  }
+}
+
+/* =========================
+MOBILE
+========================= */
+@media (max-width: 768px) {
+
+  .robo-logo {
+    right: -15px;                 /* też w prawo */
+    top: 50%;
+    transform: translateY(-13%);  /* mniej agresywnie niż desktop */
+  }
+
+  .robo-logo img {
+    height: 210px;                /* ⬅️ WIĘKSZE NA MOBILE */
+    max-height: none;
+
+    filter:
+      drop-shadow(0 12px 26px rgba(0,0,0,.55))
+      drop-shadow(0 0 20px rgba(0,212,255,.3));
   }
 }
