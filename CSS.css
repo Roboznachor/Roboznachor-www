@@ -3268,3 +3268,115 @@ body {
     bottom: 22px;
   }
 }
+
+/* =================================
+   HERO CARD – ULTRA LUX EDITION
+================================= */
+
+.services-header {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      100% 70% at 50% 0%,
+      rgba(255,255,255,0.10),
+      rgba(0,0,0,0) 55%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(16,22,38,0.96),
+      rgba(9,12,22,0.98)
+    );
+
+  border-radius: 30px;
+  padding: 58px 34px 64px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 30px 80px rgba(0,0,0,0.65);
+
+  backdrop-filter: blur(8px) saturate(110%);
+  -webkit-backdrop-filter: blur(8px) saturate(110%);
+}
+
+/* =================================
+   SUBTLE METAL EDGE (TOP)
+================================= */
+
+.services-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.12),
+      rgba(255,255,255,0.02) 20%,
+      transparent 35%
+    );
+
+  opacity: 0.6;
+}
+
+/* =================================
+   PREMIUM DIVIDER – CUT LIGHT
+================================= */
+
+.services-header::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+
+  width: 140px;
+  height: 1.5px;
+  border-radius: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(220,255,255,0.45),
+      rgba(255,255,255,0.85),
+      rgba(220,255,255,0.45),
+      transparent
+    );
+
+  box-shadow:
+    0 0 14px rgba(220,255,255,0.35);
+}
+
+/* =================================
+   TYPO – WIĘCEJ PRESTIŻU
+================================= */
+
+.services-title {
+  color: #f6fbff;
+  letter-spacing: -0.02em;
+}
+
+.services-subtitle {
+  color: rgba(220,235,245,0.65);
+}
+
+/* =================================
+   MOBILE – STILL LUX, TIGHT
+================================= */
+
+@media (max-width: 768px) {
+  .services-header {
+    padding: 50px 24px 56px;
+    border-radius: 26px;
+  }
+
+  .services-header::after {
+    width: 120px;
+    bottom: 22px;
+  }
+}
