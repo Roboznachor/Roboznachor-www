@@ -2742,3 +2742,529 @@ body {
     padding: 52px 22px 30px;
   }
 }
+
+/* ===============================
+   PREMIUM TUNING – COMPACT CARDS
+=============================== */
+
+/* 1. MNIEJSZA WYSOKOŚĆ KAFELI */
+.service-card {
+  min-height: 170px;
+  padding: 38px 24px 28px;
+}
+
+/* 2. FEATURED – MNIEJ PUSTKI U GÓRY */
+.service-card.featured {
+  padding-top: 54px;
+}
+
+/* 3. TYPOGRAFIA – BARDZIEJ PREMIUM */
+.service-name {
+  font-size: 1.32rem;
+  margin-bottom: 10px;
+}
+
+.service-card.featured .service-name {
+  font-size: 1.48rem;
+}
+
+.service-desc {
+  font-size: 0.96rem;
+  line-height: 1.5;
+}
+
+/* 4. MOBILE – JESZCZE CIAŚNIEJ */
+@media (max-width: 768px) {
+  .service-card {
+    min-height: 155px;
+    padding: 34px 22px 26px;
+  }
+
+  .service-card.featured {
+    padding-top: 48px;
+  }
+}
+
+/* ==================================
+   ULTRA COMPACT – PREMIUM FINAL
+================================== */
+
+/* KARTA – MAKSYMALNIE ZWARTA */
+.service-card {
+  min-height: 138px;
+  padding: 28px 22px 22px;
+  border-radius: 22px;
+}
+
+/* FEATURED – MINIMALNY ZAPAS NA BADGE */
+.service-card.featured {
+  padding-top: 46px;
+}
+
+/* BADGE – MNIEJSZY, LŻEJSZY */
+.service-badge {
+  padding: 5px 14px;
+  font-size: 0.6rem;
+  letter-spacing: .14em;
+}
+
+/* TYTUŁY – PREMIUM SCALE */
+.service-name {
+  font-size: 1.22rem;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.service-card.featured .service-name {
+  font-size: 1.38rem;
+}
+
+/* OPIS – CIAŚNIEJ */
+.service-desc {
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+/* GRID – MNIEJ POWIETRZA MIĘDZY KAFLAMI */
+.services-grid {
+  gap: 20px;
+}
+
+/* MOBILE – JESZCZE BARDZIEJ KOMPAKT */
+@media (max-width: 768px) {
+  .service-card {
+    min-height: 124px;
+    padding: 24px 20px 20px;
+  }
+
+  .service-card.featured {
+    padding-top: 42px;
+  }
+
+  .service-name {
+    font-size: 1.18rem;
+  }
+
+  .service-card.featured .service-name {
+    font-size: 1.32rem;
+  }
+
+  .service-desc {
+    font-size: 0.9rem;
+  }
+
+  .services-grid {
+    gap: 18px;
+  }
+}
+
+/* ===============================
+   EXCLUSIVE BADGE – INSIDE CARD
+================================ */
+
+/* kontener featured */
+.service-card.featured {
+  padding-top: 64px; /* miejsce na badge w środku */
+}
+
+/* badge – elegancki, wewnętrzny */
+.service-card.featured .service-badge {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 10px 22px;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  color: rgba(0, 30, 30, 0.85);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.9),
+      rgba(220,255,255,0.85)
+    );
+
+  border-radius: 999px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.9),
+    0 6px 18px rgba(0,0,0,.25);
+
+  z-index: 2;
+}
+
+/* subtelna linia separująca badge od treści */
+.service-card.featured::after {
+  content: "";
+  position: absolute;
+  top: 54px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 64px;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,255,240,.45),
+    transparent
+  );
+
+  opacity: .6;
+}
+
+/* mobile – jeszcze ciaśniej */
+@media (max-width: 768px) {
+  .service-card.featured {
+    padding-top: 58px;
+  }
+
+  .service-card.featured .service-badge {
+    padding: 9px 20px;
+    font-size: 0.65rem;
+  }
+}
+
+/* ===============================
+   BADGE – EDGE LOCKED (PREMIUM)
+================================ */
+
+/* featured karta */
+.service-card.featured {
+  padding-top: 56px; /* miejsce na badge */
+  overflow: hidden;  /* badge NIE wychodzi poza kartę */
+}
+
+/* badge przypięty do górnej krawędzi */
+.service-card.featured .service-badge {
+  position: absolute;
+  top: 0;                 /* KLUCZ */
+  left: 50%;
+  transform: translate(-50%, 50%); /* lekko w dół – premium feel */
+
+  padding: 10px 22px;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  color: rgba(0, 30, 30, 0.85);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.95),
+      rgba(220,255,255,0.85)
+    );
+
+  border-radius: 999px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.9),
+    0 6px 18px rgba(0,0,0,.25);
+
+  z-index: 2;
+}
+
+/* usuwamy WSZYSTKIE linie / pseudo pod badge */
+.service-card.featured::after {
+  content: none !important;
+}
+
+/* mobile – minimalnie ciaśniej */
+@media (max-width: 768px) {
+  .service-card.featured {
+    padding-top: 52px;
+  }
+
+  .service-card.featured .service-badge {
+    padding: 9px 20px;
+    font-size: 0.65rem;
+  }
+}
+
+/* ===============================
+   BADGE – PREMIUM, WYCHODZI NAD KARTĘ
+================================ */
+
+/* featured karta MUSI pozwolić wyjść badge */
+.service-card.featured {
+  overflow: visible;
+  padding-top: 48px; /* mniej miejsca, bo badge jest wyżej */
+}
+
+/* badge – mniejszy, lżejszy, luksusowy */
+.service-card.featured .service-badge {
+  position: absolute;
+  top: -14px;              /* ⬅️ KLUCZ: wychodzi NAD kartę */
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 8px 18px;       /* ⬅️ MNIEJSZY */
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  color: rgba(0, 30, 30, 0.85);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.95),
+      rgba(220,245,245,0.85)
+    );
+
+  border-radius: 999px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.9),
+    0 6px 16px rgba(0,0,0,.35);
+
+  z-index: 5;
+}
+
+/* mobile – jeszcze ciaśniej */
+@media (max-width: 768px) {
+  .service-card.featured {
+    padding-top: 44px;
+  }
+
+  .service-card.featured .service-badge {
+    top: -12px;
+    padding: 7px 16px;
+    font-size: 0.6rem;
+  }
+}
+
+/* ===============================
+   UNCLIP BADGE – FINAL FIX
+================================ */
+
+.services-section,
+.services-grid {
+  overflow: visible !important;
+  contain: none !important;
+}
+
+.services-section * {
+  contain: none;
+}
+
+/* ===============================
+   BADGE – PREMIUM MICRO TUNE
+================================ */
+
+.service-card.featured .service-badge {
+  top: -16px;              /* było ~14–16px → wyraźniej wychodzi */
+  padding: 5px 14px;       /* minimalnie mniejszy */
+  font-size: 0.6rem;       /* delikatniejsza typografia */
+  letter-spacing: 0.14em;  /* bardziej „lux” */
+
+  background: linear-gradient(
+    180deg,
+    #f2fbfa,
+    #dff6f3
+  );
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, .25),
+    0 8px 24px rgba(0, 212, 255, .25);
+}
+
+/* ==================================
+   BADGE – FROSTED GLASS (SAFE)
+================================== */
+
+.service-card.featured .service-badge {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 5px 14px;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  color: rgba(0, 35, 40, 0.85);
+
+  /* FROSTED LOOK */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.55),
+      rgba(235,245,245,0.45)
+    );
+
+  border-radius: 999px;
+
+  border: 1px solid rgba(255,255,255,0.35);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.75),
+    inset 0 -1px 0 rgba(0,0,0,0.06),
+    0 4px 10px rgba(0,0,0,0.25),
+    0 10px 24px rgba(0,212,255,0.25);
+
+  z-index: 5;
+
+
+}
+
+
+/* ================================
+   PREMIUM BADGE – FROSTED + GRAIN + MOTION
+================================ */
+
+/* badge bazowy */
+.service-card.featured .service-badge {
+  position: absolute;
+  top: -18px; /* delikatnie WYCHODZI nad kartę */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+
+  padding: 6px 14px;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  color: rgba(10, 30, 30, 0.9);
+
+  /* frosted glass */
+  background: rgba(230, 245, 245, 0.85);
+  backdrop-filter: blur(8px) saturate(130%);
+  -webkit-backdrop-filter: blur(8px) saturate(130%);
+
+  border-radius: 999px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.35),
+    0 6px 16px rgba(0,0,0,0.25);
+
+  overflow: hidden;
+}
+
+/* ===== NOISE GRAIN ===== */
+.service-card.featured .service-badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+
+  /* base64 noise – ultra subtelny */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+
+  mix-blend-mode: overlay;
+}
+
+/* ===== SUBTELNY MOTION (PREMIUM FLOAT) ===== */
+@keyframes badgeFloat {
+  0%   { transform: translate(-50%, 0); }
+  50%  { transform: translate(-50%, -0.5px); }
+  100% { transform: translate(-50%, 0); }
+}
+
+.service-card.featured .service-badge {
+  animation: badgeFloat 6s ease-in-out infinite;
+}
+
+/* hover = stop motion (bardziej luksusowe) */
+.service-card.featured:hover .service-badge {
+  animation: none;
+}
+
+/* =================================
+   HERO CARD – PREMIUM LOOK
+================================= */
+
+/* wrapper kafelka */
+.services-header {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      120% 80% at 50% 0%,
+      rgba(0,212,255,0.18),
+      transparent 65%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(18,26,48,0.95),
+      rgba(10,14,28,0.98)
+    );
+
+  border-radius: 28px;
+  padding: 56px 32px 60px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    0 20px 60px rgba(0,0,0,0.55);
+
+  backdrop-filter: blur(6px) saturate(115%);
+  -webkit-backdrop-filter: blur(6px) saturate(115%);
+}
+
+/* tytuł – bardziej luksusowy kontrast */
+.services-title {
+  color: #f2fbff;
+  letter-spacing: -0.015em;
+}
+
+/* subtitle spokojniejszy */
+.services-subtitle {
+  color: rgba(220,235,245,0.7);
+}
+
+/* =================================
+   PODŚWIETLONA LINIA – PREMIUM
+================================= */
+
+.services-header::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+
+  width: 160px;
+  height: 2px;
+  border-radius: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0,255,240,0.25) 25%,
+      rgba(0,255,240,0.85) 50%,
+      rgba(0,255,240,0.25) 75%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 12px rgba(0,255,240,0.45);
+}
+
+/* =================================
+   MOBILE – CIAŚNIEJ, ELEGANCKO
+================================= */
+
+@media (max-width: 768px) {
+  .services-header {
+    padding: 48px 24px 54px;
+    border-radius: 26px;
+  }
+
+  .services-header::after {
+    width: 130px;
+    bottom: 22px;
+  }
+}
