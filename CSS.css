@@ -3771,3 +3771,122 @@ a[href*="wa.me"] {
   z-index: 9 !important;
 }
 
+/* =====================================================
+HOME – SERVICES PREMIUM TUNING
+TYLKO STRONA GŁÓWNA
+===================================================== */
+
+body.home .services-section {
+  padding-top: 40px;
+}
+
+
+/* ===============================
+1️⃣ PREMIUM KAFEL – SPECJALISTYCZNA
+================================ */
+
+body.home .services-header {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(18,20,28,.88),
+      rgba(10,12,18,.92)
+    ),
+    radial-gradient(
+      120% 120% at 50% -30%,
+      rgba(120,200,255,.10),
+      rgba(0,0,0,0) 60%
+    );
+
+  border-radius: 34px;
+  padding: 48px 32px 44px;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.65),
+    inset 0 1px 0 rgba(255,255,255,.06),
+    inset 0 -1px 0 rgba(0,0,0,.6);
+
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+/* tytuł – spokojny, premium */
+body.home .services-title {
+  color: #ffffff;
+  letter-spacing: .4px;
+}
+
+/* subtitle – mniej koloru */
+body.home .services-subtitle {
+  color: rgba(220,235,245,.7);
+}
+
+
+/* delikatna linia pod spodem */
+body.home .services-header::after {
+  content: "";
+  display: block;
+  width: 110px;
+  height: 2px;
+  margin: 26px auto 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(120,200,255,.6),
+      transparent
+    );
+
+  border-radius: 2px;
+}
+
+
+/* ===============================
+2️⃣ KAFELKI USŁUG – MNIEJSZE, CIAŚNIEJSZE
+================================ */
+
+body.home .service-card {
+  padding: 32px 24px;
+  min-height: unset;
+
+  border-radius: 26px;
+
+  box-shadow:
+    0 16px 44px rgba(0,0,0,.55),
+    inset 0 0 0 1px rgba(255,255,255,.035);
+}
+
+/* featured – tylko subtelne wzmocnienie */
+body.home .service-card.featured {
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.65),
+    inset 0 0 0 1px rgba(120,200,255,.18);
+}
+
+/* nazwy – minimalnie mniejsze */
+body.home .service-name {
+  font-size: 1.55rem;
+}
+
+/* opisy – ciaśniej */
+body.home .service-desc {
+  font-size: .95rem;
+  line-height: 1.55;
+  margin-top: 10px;
+}
+
+
+/* ===============================
+3️⃣ BADGE – MNIEJ „PLASTIKU”
+================================ */
+
+body.home .service-badge {
+  background: rgba(255,255,255,.14);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.3),
+    0 6px 18px rgba(0,0,0,.35);
+}
+
