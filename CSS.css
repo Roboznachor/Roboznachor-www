@@ -4495,3 +4495,86 @@ STATS COUNTER – PREMIUM (HOME)
     padding: 44px 22px 40px;
   }
 }
+
+/* ===============================
+LICZNIK – GLOW PODCZAS LICZENIA
+=============================== */
+
+.stats-counter {
+  transition: box-shadow .6s ease, transform .6s ease;
+}
+
+/* aktywny glow */
+.stats-counter.is-counting {
+  box-shadow:
+    inset 0 0 0 1px rgba(0,212,255,.18),
+    0 0 0 1px rgba(0,212,255,.25),
+    0 18px 50px rgba(0,212,255,.35),
+    0 0 90px rgba(0,212,255,.25);
+
+  transform: translateY(-1px);
+}
+
+/* liczba – delikatny puls */
+.stats-counter.is-counting .stats-number {
+  text-shadow:
+    0 0 12px rgba(0,212,255,.55),
+    0 0 32px rgba(0,212,255,.35);
+}
+
+/* ===============================
+LICZNIK – FINAL MICRO FLASH
+=============================== */
+
+.stats-counter.flash-final {
+  animation: counterFlash .45s ease-out;
+}
+
+@keyframes counterFlash {
+  0% {
+    box-shadow:
+      inset 0 0 0 1px rgba(0,212,255,.25),
+      0 0 0 1px rgba(0,212,255,.35),
+      0 0 60px rgba(0,212,255,.55),
+      0 0 120px rgba(0,212,255,.45);
+    transform: scale(1);
+  }
+
+  45% {
+    box-shadow:
+      inset 0 0 0 1px rgba(0,212,255,.45),
+      0 0 0 1px rgba(0,212,255,.55),
+      0 0 90px rgba(0,212,255,.75),
+      0 0 160px rgba(0,212,255,.55);
+    transform: scale(1.015);
+  }
+
+  100% {
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,.06),
+      0 20px 50px rgba(0,0,0,.55);
+    transform: scale(1);
+  }
+}
+
+/* =================================
+TOP SPACING – HOME + O MNIE
+================================= */
+
+/* Strona główna */
+.home main {
+  padding-top: 48px;
+}
+
+/* O mnie – PODMIEŃ 42 NA SWOJE ID */
+.page-id-48 main {
+  padding-top: 48px;
+}
+
+/* Mobile – ciaśniej */
+@media (max-width: 768px) {
+  .home main,
+  .page-id-48 main {
+    padding-top: 32px;
+  }
+}
