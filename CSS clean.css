@@ -1179,7 +1179,6 @@ WHATSAPP
   z-index: 2147483647;
   pointer-events: none;
 }
-
 #wa-floating-root .wa-float {
   pointer-events: auto;
   display: inline-block;
@@ -1197,3 +1196,4 @@ WHATSAPP
 a[href*="wa.me"] {
   z-index: 9 !important;
 }
+
