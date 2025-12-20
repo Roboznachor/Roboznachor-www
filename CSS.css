@@ -4629,3 +4629,41 @@ MOBILE
       drop-shadow(0 0 20px rgba(0,212,255,.3));
   }
 }
+
+/* =================================
+HERO GLOW – FINAL SOURCE OF TRUTH
+================================= */
+
+.services-header {
+  position: relative;
+  overflow: hidden;
+  --light-x: 50%;
+  --light-y: 30%;
+}
+
+/* GLOW LAYER – STEROWANY JS */
+.services-header::before {
+  content: "";
+  position: absolute;
+  inset: -40% -30% auto -30%;
+  height: 180%;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      45% 35% at var(--light-x) var(--light-y),
+      rgba(0,212,255,0.28),
+      rgba(0,160,200,0.14) 30%,
+      rgba(0,0,0,0) 60%
+    );
+
+  opacity: 0.9;
+  transition: opacity .4s ease;
+}
+
+/* CONTENT NAD GLOW */
+.services-header > * {
+  position: relative;
+  z-index: 1;
+}
