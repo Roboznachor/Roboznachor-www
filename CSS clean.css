@@ -538,7 +538,336 @@ header.wp-block-template-part::after {
 }
 
 /* ===============================
-   PAGE-SPECIFIC
+   STATS COUNTER
+================================ */
+.stats-counter {
+  margin: 72px auto;
+  max-width: 620px;
+  padding: 52px 32px 48px;
+  text-align: center;
+  border-radius: 32px;
+  background: radial-gradient(140% 90% at 50% -20%, rgba(0,212,255,.25), transparent 60%), linear-gradient(180deg, rgba(18,28,48,.94), rgba(12,18,32,.98));
+  backdrop-filter: blur(14px) saturate(1.15);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 28px 70px rgba(0,0,0,.65);
+  transition: box-shadow .6s, transform .6s;
+}
+
+.stats-eyebrow {
+  font-size: .85rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(200,240,255,.7);
+  margin-bottom: 16px;
+}
+
+.stats-number,
+.stats-counter #licznik {
+  font-size: clamp(3.8rem, 9vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #00f0ff;
+  line-height: 1;
+}
+
+.stats-plus {
+  font-size: .45em;
+  vertical-align: super;
+  margin-left: 4px;
+}
+
+.stats-label {
+  margin-top: 18px;
+  font-size: 1.05rem;
+  color: rgba(230,240,255,.75);
+}
+
+.stats-counter::after {
+  content: "";
+  display: block;
+  width: 140px;
+  height: 2px;
+  margin: 32px auto 0;
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,.75), transparent);
+  box-shadow: 0 0 14px rgba(0,212,255,.45);
+}
+
+/* Counter animations */
+.stats-counter.is-counting {
+  box-shadow: inset 0 0 0 1px rgba(0,212,255,.18), 0 0 0 1px rgba(0,212,255,.25), 0 18px 50px rgba(0,212,255,.35), 0 0 90px rgba(0,212,255,.25);
+  transform: translateY(-1px);
+}
+
+.stats-counter.is-counting .stats-number {
+  text-shadow: 0 0 12px rgba(0,212,255,.55), 0 0 32px rgba(0,212,255,.35);
+}
+
+.stats-counter.flash-final {
+  animation: counterFlash .45s ease-out;
+}
+
+@keyframes counterFlash {
+  0% {
+    box-shadow: inset 0 0 0 1px rgba(0,212,255,.25), 0 0 0 1px rgba(0,212,255,.35), 0 0 60px rgba(0,212,255,.55), 0 0 120px rgba(0,212,255,.45);
+    transform: scale(1);
+  }
+  45% {
+    box-shadow: inset 0 0 0 1px rgba(0,212,255,.45), 0 0 0 1px rgba(0,212,255,.55), 0 0 90px rgba(0,212,255,.75), 0 0 160px rgba(0,212,255,.55);
+    transform: scale(1.015);
+  }
+  100% {
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 20px 50px rgba(0,0,0,.55);
+    transform: scale(1);
+  }
+}
+
+/* ===============================
+   SERVICE PAGE
+================================ */
+.service-page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 40px 16px 80px;
+}
+
+.service-page .znachor-card {
+  position: relative;
+  margin-bottom: 36px;
+  padding: 40px 36px 44px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015) 22%, rgba(0,0,0,0.55)), linear-gradient(180deg, rgba(18,24,40,0.96), rgba(10,14,26,0.98));
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), inset 0 -1px 0 rgba(0,0,0,0.55), 0 30px 80px rgba(0,0,0,0.65);
+}
+
+/* Hero card (first) */
+.service-page .znachor-card:first-of-type {
+  padding: 56px 44px 58px;
+  border-radius: 34px;
+  overflow: visible;
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02) 28%, rgba(0,0,0,0.65)), linear-gradient(180deg, rgba(22,30,52,0.97), rgba(12,18,32,0.98));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), inset 0 -1px 0 rgba(0,0,0,0.65), 0 40px 100px rgba(0,0,0,0.75);
+}
+
+/* Experience badge */
+.service-page .znachor-card:first-of-type::after {
+  content: "13 LAT DOŚWIADCZENIA";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  padding: 6px 16px;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(15,30,35,0.9);
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(235,245,245,0.75));
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 6px 18px rgba(0,0,0,0.35), 0 0 24px rgba(0,212,255,0.25);
+  backdrop-filter: blur(6px) saturate(120%);
+}
+
+/* Card dividers */
+.service-page .znachor-card + .znachor-card {
+  margin-top: 56px;
+}
+
+.service-page .znachor-card + .znachor-card::before {
+  content: "";
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 1px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, transparent, rgba(220,255,255,0.55), rgba(255,255,255,0.9), rgba(220,255,255,0.55), transparent);
+  box-shadow: 0 0 10px rgba(0,212,255,0.35);
+  opacity: 0.7;
+}
+
+/* Typography */
+.service-page h1 {
+  font-size: clamp(2.3rem, 6vw, 3.1rem);
+  margin-bottom: 18px;
+  color: #f6fbff;
+  letter-spacing: -0.02em;
+}
+
+.service-page h2 {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  color: #eef6ff;
+  letter-spacing: -0.01em;
+}
+
+.service-page p,
+.service-page li {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(225,235,245,0.88);
+}
+
+.service-page strong {
+  color: #ffffff;
+}
+
+.service-page ul {
+  margin-top: 18px;
+  padding-left: 22px;
+}
+
+.service-page li {
+  margin-bottom: 10px;
+  color: rgba(230,240,255,0.9);
+}
+
+/* Last card (CTA styling) */
+.service-page .znachor-card:last-of-type {
+  background: radial-gradient(120% 80% at 50% -20%, rgba(0,212,255,0.14), transparent 60%), linear-gradient(180deg, rgba(18,26,44,0.96), rgba(10,14,26,0.98));
+  box-shadow: inset 0 0 0 1px rgba(0,212,255,0.18), 0 34px 90px rgba(0,0,0,0.75);
+}
+
+/* ===============================
+   SERVICE CHOICE CARDS (CTA)
+================================ */
+.service-choice {
+  margin-top: 72px;
+  margin-bottom: 40px;
+  padding: 32px 26px;
+  border-radius: 32px;
+  background: radial-gradient(120% 80% at 50% -20%, rgba(0,212,255,0.18), transparent 65%), linear-gradient(180deg, rgba(18,26,46,.94), rgba(12,18,32,.98));
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 28px 70px rgba(0,0,0,.65);
+  display: grid;
+  gap: 18px;
+}
+
+.service-choice::before {
+  content: "";
+  display: block;
+  width: 140px;
+  height: 2px;
+  margin: 0 auto 32px;
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,.7), transparent);
+  box-shadow: 0 0 12px rgba(0,212,255,.45);
+}
+
+.choice-card {
+  height: 108px;
+  border-radius: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none !important;
+  transition: transform .3s, box-shadow .3s, background .3s;
+}
+
+.choice-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.choice-desc {
+  font-size: .95rem;
+  opacity: .85;
+  margin-top: 6px;
+}
+
+/* Primary button */
+.choice-card.primary {
+  background: linear-gradient(135deg, #00f0ff, #00ffd5);
+  color: #001616;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 16px 42px rgba(0,255,240,.45);
+}
+
+.choice-card.primary .choice-title,
+.choice-card.primary .choice-desc {
+  transform: translateY(-2px);
+}
+
+.choice-card.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.85), 0 24px 60px rgba(0,255,240,.55);
+}
+
+/* Phone button */
+.choice-card.phone {
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04), 0 14px 34px rgba(0,0,0,.55);
+}
+
+.choice-card.phone:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), 0 22px 50px rgba(0,0,0,.65);
+}
+
+/* CTA glow animation */
+@keyframes ctaGlowOnce {
+  0% {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 0 0 rgba(0,255,240,0);
+  }
+  40% {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.85), 0 0 38px rgba(0,255,240,.55);
+  }
+  100% {
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 16px 42px rgba(0,255,240,.45);
+  }
+}
+
+.service-choice.is-visible .choice-card.primary {
+  animation: ctaGlowOnce 1.4s ease-out both;
+}
+
+/* ===============================
+   ABOUT PAGE
+================================ */
+main div[style*="text-align: center"] img {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 24px;
+}
+
+/* ===============================
+   WHATSAPP BUTTON
+================================ */
+#wa-floating-root {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2147483647;
+  pointer-events: none;
+}
+
+#wa-floating-root .wa-float {
+  pointer-events: auto;
+  display: inline-block;
+  background: #25D366;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(0,0,0,.45);
+}
+
+.whatsapp-button,
+a[href*="wa.me"] {
+  z-index: 9 !important;
+}
+
+/* ===============================
+   PAGE-SPECIFIC SPACING
 ================================ */
 .home main {
   padding-top: 48px;
@@ -548,9 +877,222 @@ header.wp-block-template-part::after {
   padding-top: 48px;
 }
 
+body.home .services-section {
+  padding-top: 40px;
+}
+
+/* Home page service header styling */
+body.home .services-header {
+  background: linear-gradient(180deg, rgba(18,20,28,.88), rgba(10,12,18,.92)), radial-gradient(120% 120% at 50% -30%, rgba(120,200,255,.10), rgba(0,0,0,0) 60%);
+  border-radius: 34px;
+  padding: 48px 32px 44px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.06), inset 0 -1px 0 rgba(0,0,0,.6);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+body.home .services-title {
+  color: #ffffff;
+  letter-spacing: .4px;
+}
+
+body.home .services-subtitle {
+  color: rgba(220,235,245,.7);
+}
+
+body.home .services-header::after {
+  width: 110px;
+  background: linear-gradient(90deg, transparent, rgba(120,200,255,.6), transparent);
+}
+
+body.home .service-card {
+  padding: 32px 24px;
+  min-height: unset;
+  box-shadow: 0 16px 44px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.035);
+}
+
+body.home .service-card.featured {
+  box-shadow: 0 22px 60px rgba(0,0,0,.65), inset 0 0 0 1px rgba(120,200,255,.18);
+}
+
+body.home .service-name {
+  font-size: 1.55rem;
+}
+
+body.home .service-desc {
+  font-size: .95rem;
+  line-height: 1.55;
+  margin-top: 10px;
+}
+
+body.home .service-badge {
+  background: rgba(255,255,255,.14);
+  color: #ffffff;
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 6px 18px rgba(0,0,0,.35);
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
 @media (max-width: 768px) {
+  body {
+    padding-top: 58px !important;
+  }
+  
+  .robo-header,
+  .robo-header-inner {
+    height: 58px;
+  }
+  
+  .robo-container {
+    padding: 0 8px;
+  }
+  
+  .robo-nav {
+    gap: 6px;
+    margin-right: 64px;
+  }
+  
+  .robo-nav a {
+    font-size: 0.82rem;
+    padding: 5px 9px;
+  }
+  
+  .robo-logo {
+    right: -15px;
+    transform: translateY(-13%);
+  }
+  
+  .robo-logo img {
+    height: 210px;
+  }
+  
+  .znachor-card {
+    padding: 22px 16px 26px;
+    overflow: hidden;
+    margin-bottom: 80px;
+  }
+  
+  .zn-btn {
+    height: 52px;
+    font-size: 1.5rem;
+  }
+  
+  .zn-btn-arrow {
+    transform: translateY(-6px);
+  }
+  
+  .zn-btn:hover .zn-btn-arrow {
+    transform: translate(13px, -6px);
+  }
+  
+  .stats-counter {
+    padding: 44px 22px 40px;
+  }
+  
+  .services-header {
+    padding: 46px 24px 42px;
+  }
+  
+  .service-card {
+    min-height: 124px;
+    padding: 24px 20px;
+  }
+  
+  .service-card.featured {
+    padding-top: 42px;
+  }
+  
+  .service-card.featured .service-badge {
+    top: -12px;
+    padding: 7px 16px;
+    font-size: 0.6rem;
+  }
+  
+  .lux-cta {
+    padding: 54px 24px 50px;
+  }
+  
+  .cta-btn {
+    height: 58px;
+    font-size: .95rem;
+  }
+  
+  .service-page {
+    padding-top: 24px;
+  }
+  
+  .service-page .znachor-card {
+    padding: 32px 24px 34px;
+    border-radius: 24px;
+  }
+  
+  .service-page .znachor-card:first-of-type {
+    padding: 44px 28px 46px;
+    border-radius: 28px;
+  }
+  
+  .service-page .znachor-card:first-of-type::after {
+    top: -12px;
+    padding: 5px 14px;
+    font-size: 0.6rem;
+  }
+  
+  .service-page .znachor-card + .znachor-card {
+    margin-top: 48px;
+  }
+  
+  .service-page .znachor-card + .znachor-card::before {
+    width: 120px;
+    top: -24px;
+  }
+  
+  .service-page h1 {
+    font-size: 2.1rem;
+  }
+  
+  .service-choice {
+    margin-top: 56px;
+    padding: 26px 18px;
+    gap: 16px;
+  }
+  
+  .choice-card {
+    height: 96px;
+  }
+  
+  .choice-title {
+    font-size: 1.05rem;
+  }
+  
+  .choice-desc {
+    font-size: .9rem;
+  }
+  
   .home main,
   .page-id-48 main {
     padding-top: 70px;
+  }
+  
+  main div[style*="max-width: 1000px"] {
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow-x: hidden;
+  }
+  
+  main div[style*="text-align: center"] img {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .lux-cta {
+    padding: 42px 20px 48px;
+    margin: 70px 14px;
+  }
+  
+  .lux-cta-title {
+    font-size: 1.9rem;
   }
 }
