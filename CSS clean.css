@@ -744,3 +744,79 @@ MOBILE
     font-size: .9rem;
   }
 }
+
+/* =====================================================
+FORM – ZNACHOR (RESTORE COLORS)
+===================================================== */
+
+.znachor-card {
+  background: rgba(26,26,46,.92);
+  border-radius: 26px;
+  padding: 24px 20px 28px;
+  border: 1px solid rgba(0,212,255,.25);
+
+  box-shadow:
+    0 18px 50px rgba(0,0,0,.55);
+}
+
+.znachor-form-inner input,
+.znachor-form-inner textarea {
+  background: #1a1a2e;
+  border: 1px solid rgba(0,212,255,.35);
+  color: #ffffff;
+}
+
+.znachor-form-inner input:focus,
+.znachor-form-inner textarea:focus {
+  border-color: #00d4ff;
+  background: #15152a;
+
+  box-shadow:
+    0 0 0 2px rgba(0,212,255,.35),
+    0 0 18px rgba(0,212,255,.25);
+}
+
+/* =====================================================
+SERVICE PAGE – RESTORE PREMIUM BACKGROUNDS
+===================================================== */
+
+.service-page .znachor-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.015) 22%,
+      rgba(0,0,0,0.55)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(18,24,40,0.96),
+      rgba(10,14,26,0.98)
+    );
+
+  border: 1px solid rgba(255,255,255,0.10);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 -1px 0 rgba(0,0,0,0.55),
+    0 30px 80px rgba(0,0,0,0.65);
+}
+
+/* =====================================================
+SERVICE CTA – CHOICE COLORS RESTORE
+===================================================== */
+
+.service-page .choice-card.primary {
+  background: linear-gradient(135deg, #00f0ff, #00ffd5);
+  color: #001616;
+}
+
+.service-page .choice-card.phone {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.12),
+      rgba(255,255,255,.06)
+    );
+  color: #ffffff;
+}
