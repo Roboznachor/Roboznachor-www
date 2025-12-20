@@ -1,14 +1,13 @@
 /*
 Theme Name: Robo Znachor Premium
-Description: Formularz kontaktowy – OPTIMIZED
-Author: ChatGPT
+Description: Optimized & Consolidated
 Version: 3.0
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 /* ===============================
-   GLOBAL RESET
+   GLOBAL
 ================================ */
 html, body {
   max-width: 100%;
@@ -23,9 +22,7 @@ body {
   padding-top: 64px;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 /* ===============================
    HEADER - CONSOLIDATED
@@ -43,9 +40,7 @@ body {
 .robo-header::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -40px;
+  left: 0; right: 0; bottom: -40px;
   height: 40px;
   pointer-events: none;
   background: linear-gradient(to bottom, rgba(15,15,26,0.95), rgba(15,15,26,0));
@@ -65,7 +60,6 @@ body {
   padding: 0 12px;
 }
 
-/* Logo */
 .robo-logo {
   position: absolute;
   right: 10px;
@@ -80,7 +74,6 @@ body {
   filter: drop-shadow(0 16px 34px rgba(0,0,0,.6)) drop-shadow(0 0 26px rgba(0,212,255,.35));
 }
 
-/* Navigation */
 .robo-nav {
   display: flex !important;
   gap: 8px;
@@ -97,25 +90,19 @@ body {
   border-radius: 999px;
   text-decoration: none !important;
   white-space: nowrap;
-  
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.08);
   color: #e6f9ff;
-  
   backdrop-filter: blur(8px);
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.02), 0 6px 18px rgba(0,0,0,.35);
-  
   transition: background .25s ease, box-shadow .25s ease, transform .25s ease;
   overflow: hidden;
 }
 
-/* Nav underline effect */
 .robo-nav a::after {
   content: '';
   position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 6px;
+  left: 14px; right: 14px; bottom: 6px;
   height: 2px;
   border-radius: 2px;
   background: linear-gradient(90deg, #00d4ff, #00ffea);
@@ -141,29 +128,12 @@ body {
   box-shadow: 0 0 0 1px rgba(0,212,255,.6), 0 12px 32px rgba(0,212,255,.55);
 }
 
-.robo-nav a.active::after {
-  box-shadow: 0 0 10px rgba(0,212,255,.6);
-}
-
-/* Header font normalization */
-.robo-header,
-.robo-header * {
+.robo-header, .robo-header * {
   font-family: 'Poppins', sans-serif !important;
   line-height: 1.2;
   letter-spacing: 0;
 }
 
-/* Scrolled state */
-.robo-header.is-scrolled .robo-header-inner {
-  height: 56px;
-}
-
-.robo-header.is-scrolled .robo-nav a {
-  padding: 6px 14px;
-  font-size: 0.9rem;
-}
-
-/* WordPress header cleanup */
 header.wp-block-template-part {
   background: transparent !important;
   box-shadow: none !important;
@@ -173,11 +143,10 @@ header.wp-block-template-part {
 header.wp-block-template-part::before,
 header.wp-block-template-part::after {
   display: none !important;
-  content: none !important;
 }
 
 /* ===============================
-   WRAPPER
+   LAYOUT
 ================================ */
 .znachor-wrapper {
   max-width: 900px;
@@ -186,9 +155,6 @@ header.wp-block-template-part::after {
   padding-top: 120px;
 }
 
-/* ===============================
-   PAGE HEADER
-================================ */
 .znachor-header {
   text-align: center;
   margin-bottom: 24px;
@@ -205,9 +171,6 @@ header.wp-block-template-part::after {
   color: #bbb;
 }
 
-/* ===============================
-   CARD CONTAINER
-================================ */
 .znachor-card {
   background: rgba(26,26,46,.92);
   border-radius: 26px;
@@ -217,7 +180,7 @@ header.wp-block-template-part::after {
 }
 
 /* ===============================
-   FORM INPUTS
+   FORMS
 ================================ */
 .znachor-form-inner input,
 .znachor-form-inner textarea {
@@ -229,7 +192,7 @@ header.wp-block-template-part::after {
   border-radius: 14px;
   color: #fff;
   font-size: 1.05rem;
-  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+  transition: border-color .2s, box-shadow .2s, background .2s;
 }
 
 .znachor-form-inner input::placeholder,
@@ -251,7 +214,7 @@ header.wp-block-template-part::after {
 }
 
 /* ===============================
-   CHOICE CARDS (RADIO BUTTONS)
+   CHOICE CARDS
 ================================ */
 .zn-choice-wrapper {
   display: grid;
@@ -268,18 +231,14 @@ header.wp-block-template-part::after {
   background: rgba(26,26,46,.75);
   border: 1px solid rgba(0,212,255,.28);
   cursor: pointer;
-  transition: all .2s ease;
+  transition: all .2s;
 }
 
 .zn-choice input[type="radio"] {
   appearance: none;
   position: absolute;
   inset: 0;
-  width: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
+  width: 0; height: 0;
   opacity: 0;
   pointer-events: none;
 }
@@ -304,8 +263,7 @@ header.wp-block-template-part::after {
 .zn-choice:has(input:checked)::after {
   content: "✓";
   position: absolute;
-  top: 50%;
-  right: 16px;
+  top: 50%; right: 16px;
   transform: translateY(-50%);
   font-size: 1.1rem;
   font-weight: 700;
@@ -313,7 +271,7 @@ header.wp-block-template-part::after {
 }
 
 /* ===============================
-   SUBMIT BUTTON
+   BUTTONS
 ================================ */
 .zn-btn {
   width: 100%;
@@ -330,7 +288,7 @@ header.wp-block-template-part::after {
   background: linear-gradient(90deg, #00d4ff, #00ffea);
   border: none;
   cursor: pointer;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform .2s, box-shadow .2s;
 }
 
 .zn-btn:hover {
@@ -338,18 +296,11 @@ header.wp-block-template-part::after {
   box-shadow: 0 14px 34px rgba(0,212,255,.55);
 }
 
-.zn-btn-text {
-  display: flex;
-  align-items: center;
-}
-
 .zn-btn-arrow {
   font-size: 1.8em;
   line-height: 1;
-  display: flex;
-  align-items: center;
   transform: translateY(-1px);
-  transition: transform .2s ease;
+  transition: transform .2s;
 }
 
 .zn-btn:hover .zn-btn-arrow {
@@ -357,94 +308,13 @@ header.wp-block-template-part::after {
 }
 
 /* ===============================
-   STATS COUNTER
-================================ */
-.stats-counter {
-  margin: 72px auto;
-  max-width: 620px;
-  padding: 52px 32px 48px;
-  text-align: center;
-  border-radius: 32px;
-  background: radial-gradient(140% 90% at 50% -20%, rgba(0,212,255,.25), transparent 60%), linear-gradient(180deg, rgba(18,28,48,.94), rgba(12,18,32,.98));
-  backdrop-filter: blur(14px) saturate(1.15);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 28px 70px rgba(0,0,0,.65);
-  isolation: isolate;
-  transition: box-shadow .6s ease, transform .6s ease;
-}
-
-.stats-counter p:first-child,
-.stats-eyebrow {
-  font-size: .85rem;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: rgba(200,240,255,.7);
-  margin-bottom: 16px;
-}
-
-.stats-counter #licznik,
-.stats-number {
-  font-size: clamp(3.8rem, 9vw, 5rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: #00f0ff;
-  line-height: 1;
-}
-
-.stats-counter p:last-child,
-.stats-label {
-  margin-top: 18px;
-  font-size: 1.05rem;
-  color: rgba(230,240,255,.75);
-}
-
-.stats-counter::after {
-  content: "";
-  display: block;
-  width: 140px;
-  height: 2px;
-  margin: 32px auto 0;
-  background: linear-gradient(90deg, transparent, rgba(0,212,255,.75), transparent);
-  box-shadow: 0 0 14px rgba(0,212,255,.45);
-}
-
-/* Counting state */
-.stats-counter.is-counting {
-  box-shadow: inset 0 0 0 1px rgba(0,212,255,.18), 0 0 0 1px rgba(0,212,255,.25), 0 18px 50px rgba(0,212,255,.35), 0 0 90px rgba(0,212,255,.25);
-  transform: translateY(-1px);
-}
-
-.stats-counter.is-counting .stats-number {
-  text-shadow: 0 0 12px rgba(0,212,255,.55), 0 0 32px rgba(0,212,255,.35);
-}
-
-.stats-counter.flash-final {
-  animation: counterFlash .45s ease-out;
-}
-
-@keyframes counterFlash {
-  0% {
-    box-shadow: inset 0 0 0 1px rgba(0,212,255,.25), 0 0 0 1px rgba(0,212,255,.35), 0 0 60px rgba(0,212,255,.55), 0 0 120px rgba(0,212,255,.45);
-    transform: scale(1);
-  }
-  45% {
-    box-shadow: inset 0 0 0 1px rgba(0,212,255,.45), 0 0 0 1px rgba(0,212,255,.55), 0 0 90px rgba(0,212,255,.75), 0 0 160px rgba(0,212,255,.55);
-    transform: scale(1.015);
-  }
-  100% {
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 20px 50px rgba(0,0,0,.55);
-    transform: scale(1);
-  }
-}
-
-/* ===============================
-   SERVICES SECTION (HOME)
+   SERVICES (HOME)
 ================================ */
 .services-section {
   max-width: 900px;
   margin: 80px auto;
   padding: 0 16px;
   overflow: visible;
-  isolation: isolate;
 }
 
 .services-header {
@@ -454,38 +324,9 @@ header.wp-block-template-part::after {
   padding: 56px 32px 52px;
   border-radius: 32px;
   text-align: center;
-  --light-x: 50%;
-  --light-y: 30%;
-  
-  background: radial-gradient(160% 90% at 50% var(--light-y), rgba(0,212,255,.28), transparent 65%), linear-gradient(180deg, rgba(22,30,52,.88), rgba(14,20,36,.95));
+  background: radial-gradient(160% 90% at 50% 30%, rgba(0,212,255,.28), transparent 65%), linear-gradient(180deg, rgba(22,30,52,.88), rgba(14,20,36,.95));
   backdrop-filter: blur(14px) saturate(1.15);
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 26px 60px rgba(0,0,0,.6);
-}
-
-.services-header::before {
-  content: "";
-  position: absolute;
-  inset: -40% -30% auto -30%;
-  height: 180%;
-  pointer-events: none;
-  z-index: 0;
-  background: radial-gradient(45% 35% at var(--light-x) var(--light-y), rgba(0,212,255,0.28), rgba(0,160,200,0.14) 30%, rgba(0,0,0,0) 60%);
-  opacity: 0.9;
-  transition: opacity .4s ease;
-}
-
-.services-header > * {
-  position: relative;
-  z-index: 1;
-}
-
-.services-header::after {
-  content: "";
-  display: block;
-  width: 140px;
-  height: 2px;
-  margin: 30px auto 0;
-  background: linear-gradient(90deg, transparent, rgba(0,212,255,.6), transparent);
 }
 
 .services-title {
@@ -500,33 +341,21 @@ header.wp-block-template-part::after {
   color: rgba(230,240,255,.75);
 }
 
-.services-footnote {
-  margin-top: 48px;
-  text-align: center;
-  font-size: 1rem;
-  color: rgba(234,246,255,.7);
-  line-height: 1.6;
-}
-
-/* Services Grid */
 .services-grid {
   display: grid;
   gap: 20px;
-  overflow: visible;
 }
 
 .service-card {
   position: relative;
   min-height: 138px;
-  padding: 28px 22px 22px;
+  padding: 28px 22px;
   border-radius: 22px;
   background: linear-gradient(180deg, rgba(20,26,46,.95), rgba(12,16,30,.95));
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 14px 32px rgba(0,0,0,.45);
   text-align: center;
-  isolation: isolate;
-  overflow: hidden;
   cursor: pointer;
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform .25s, box-shadow .25s;
 }
 
 .service-name {
@@ -534,7 +363,6 @@ header.wp-block-template-part::after {
   font-weight: 600;
   color: #eaf6ff;
   margin-bottom: 8px;
-  line-height: 1.2;
 }
 
 .service-desc {
@@ -547,22 +375,11 @@ header.wp-block-template-part::after {
   transform: translateY(-2px);
 }
 
-/* Featured Service */
 .service-card.featured {
   padding-top: 46px;
   background: linear-gradient(180deg, rgba(0,212,255,.28), rgba(12,16,30,.95) 65%);
   box-shadow: inset 0 0 0 1px rgba(0,212,255,.35), 0 18px 40px rgba(0,212,255,.35);
   overflow: visible;
-}
-
-.service-card.featured .service-name {
-  font-size: 1.38rem;
-  color: #00ffea;
-}
-
-.service-card.featured:hover {
-  transform: translateY(-4px);
-  box-shadow: inset 0 0 0 1px rgba(0,212,255,.45), 0 26px 60px rgba(0,212,255,.35);
 }
 
 .service-card.featured .service-badge {
@@ -575,91 +392,18 @@ header.wp-block-template-part::after {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 600;
-  color: rgba(0, 35, 40, 0.85);
+  color: rgba(0,35,40,.85);
   background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(235,245,245,0.45));
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.35);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), inset 0 -1px 0 rgba(0,0,0,0.06), 0 4px 10px rgba(0,0,0,0.25), 0 10px 24px rgba(0,212,255,0.25);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 4px 10px rgba(0,0,0,0.25), 0 10px 24px rgba(0,212,255,0.25);
   z-index: 5;
-  animation: badgeFloat 6s ease-in-out infinite;
-}
-
-@keyframes badgeFloat {
-  0%, 100% { transform: translate(-50%, 0); }
-  50% { transform: translate(-50%, -0.5px); }
-}
-
-.service-card.featured:hover .service-badge {
-  animation: none;
-}
-
-.service-card .card-overlay-link {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-}
-
-/* Home-specific header styling */
-body.home .services-section {
-  padding-top: 40px;
-}
-
-body.home .services-header {
-  background: linear-gradient(180deg, rgba(18,20,28,.88), rgba(10,12,18,.92)), radial-gradient(120% 120% at 50% -30%, rgba(120,200,255,.10), rgba(0,0,0,0) 60%);
-  border-radius: 34px;
-  padding: 48px 32px 44px;
-  box-shadow: 0 30px 80px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.06), inset 0 -1px 0 rgba(0,0,0,.6);
-  border: 1px solid rgba(255,255,255,.08);
-}
-
-body.home .services-title {
-  color: #ffffff;
-  letter-spacing: .4px;
-}
-
-body.home .services-subtitle {
-  color: rgba(220,235,245,.7);
-}
-
-body.home .services-header::after {
-  width: 110px;
-  background: linear-gradient(90deg, transparent, rgba(120,200,255,.6), transparent);
-}
-
-body.home .service-card {
-  padding: 32px 24px;
-  min-height: unset;
-  box-shadow: 0 16px 44px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.035);
-}
-
-body.home .service-card.featured {
-  box-shadow: 0 22px 60px rgba(0,0,0,.65), inset 0 0 0 1px rgba(120,200,255,.18);
-}
-
-body.home .service-name {
-  font-size: 1.55rem;
-}
-
-body.home .service-desc {
-  font-size: .95rem;
-  line-height: 1.55;
-  margin-top: 10px;
-}
-
-body.home .service-badge {
-  background: rgba(255,255,255,.14);
-  color: #ffffff;
-  backdrop-filter: blur(6px);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 6px 18px rgba(0,0,0,.35);
 }
 
 /* ===============================
    CTA SECTION
 ================================ */
 .lux-cta {
-  position: relative;
-  isolation: isolate;
-  z-index: 2;
   margin: 90px auto;
   max-width: 620px;
   padding: 64px 32px 60px;
@@ -668,15 +412,6 @@ body.home .service-badge {
   background: radial-gradient(140% 90% at 50% 0%, rgba(0,212,255,.22), transparent 65%), linear-gradient(180deg, rgba(20,30,52,.9), rgba(12,18,32,.96));
   backdrop-filter: blur(16px);
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 30px 70px rgba(0,0,0,.65);
-  animation: ctaFadeUp .7s ease-out both;
-}
-
-.lux-cta-eyebrow {
-  font-size: .8rem;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: rgba(200,240,255,.7);
-  margin-bottom: 10px;
 }
 
 .lux-cta-title {
@@ -690,7 +425,6 @@ body.home .service-badge {
   display: flex;
   flex-direction: column;
   gap: 28px;
-  align-items: center;
 }
 
 .cta-btn {
@@ -705,9 +439,7 @@ body.home .service-badge {
   font-size: 1.05rem;
   font-weight: 600;
   text-decoration: none;
-  white-space: nowrap;
-  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
-  box-shadow: 0 14px 40px rgba(0,0,0,.35);
+  transition: transform .25s, box-shadow .25s;
 }
 
 .cta-primary {
@@ -715,22 +447,10 @@ body.home .service-badge {
   color: #000;
 }
 
-.cta-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 50px rgba(0,212,255,.45);
-}
-
 .cta-phone {
   background: linear-gradient(180deg, rgba(0,212,255,.28), rgba(0,212,255,.14));
-  color: #ffffff;
+  color: #fff;
   border: 1px solid rgba(255,255,255,.18);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04), 0 14px 34px rgba(0,0,0,.55);
-}
-
-.cta-phone:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
-  box-shadow: 0 16px 42px rgba(0,212,255,.35);
 }
 
 .cta-whatsapp {
@@ -738,85 +458,99 @@ body.home .service-badge {
   color: #032b12;
 }
 
-.cta-whatsapp:hover {
+.cta-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 18px 45px rgba(37,211,102,.45);
 }
 
-.cta-icon,
-.cta-arrow {
-  font-size: 1.2em;
-  line-height: 1;
-  transform: translateY(-1px);
-}
-
-@keyframes ctaFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
+/* ===============================
+   MOBILE
+================================ */
+@media (max-width: 768px) {
+  body {
+    padding-top: 58px !important;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .robo-header,
+  .robo-header-inner {
+    height: 58px;
+  }
+  
+  .robo-container {
+    padding: 0 8px;
+  }
+  
+  .robo-nav {
+    gap: 6px;
+    margin-right: 64px;
+  }
+  
+  .robo-nav a {
+    font-size: 0.82rem;
+    padding: 5px 9px;
+  }
+  
+  .robo-logo {
+    right: -15px;
+    transform: translateY(-13%);
+  }
+  
+  .robo-logo img {
+    height: 210px;
+  }
+  
+  .znachor-card {
+    padding: 22px 16px 26px;
+  }
+  
+  .zn-btn {
+    height: 52px;
+    font-size: 1.5rem;
+  }
+  
+  .zn-btn-arrow {
+    transform: translateY(-6px);
+  }
+  
+  .zn-btn:hover .zn-btn-arrow {
+    transform: translate(13px, -6px);
+  }
+  
+  .service-card {
+    min-height: 124px;
+    padding: 24px 20px;
+  }
+  
+  .lux-cta {
+    padding: 54px 24px 50px;
+  }
+  
+  .cta-btn {
+    height: 58px;
+    font-size: .95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .lux-cta {
+    padding: 42px 20px 48px;
+    margin: 70px 14px;
   }
 }
 
 /* ===============================
-   SERVICE PAGE
+   PAGE-SPECIFIC
 ================================ */
-.service-page {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 40px 16px 80px;
+.home main {
+  padding-top: 48px;
 }
 
-.service-page .znachor-card {
-  position: relative;
-  margin-bottom: 36px;
-  padding: 40px 36px 44px;
-  border-radius: 28px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015) 22%, rgba(0,0,0,0.55)), linear-gradient(180deg, rgba(18,24,40,0.96), rgba(10,14,26,0.98));
-  border: 1px solid rgba(255,255,255,0.10);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), inset 0 -1px 0 rgba(0,0,0,0.55), 0 30px 80px rgba(0,0,0,0.65);
+.page-id-48 main {
+  padding-top: 48px;
 }
 
-.service-page .znachor-card:first-of-type {
-  padding: 56px 44px 58px;
-  border-radius: 34px;
-  overflow: visible;
-  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02) 28%, rgba(0,0,0,0.65)), linear-gradient(180deg, rgba(22,30,52,0.97), rgba(12,18,32,0.98));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), inset 0 -1px 0 rgba(0,0,0,0.65), 0 40px 100px rgba(0,0,0,0.75);
+@media (max-width: 768px) {
+  .home main,
+  .page-id-48 main {
+    padding-top: 70px;
+  }
 }
-
-.service-page .znachor-card:first-of-type::after {
-  content: "13 LAT DOŚWIADCZENIA";
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  padding: 6px 16px;
-  font-size: 0.62rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: rgba(15,30,35,0.9);
-  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(235,245,245,0.75));
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.45);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 6px 18px rgba(0,0,0,0.35), 0 0 24px rgba(0,212,255,0.25);
-  backdrop-filter: blur(6px) saturate(120%);
-}
-
-.service-page .znachor-card + .znachor-card {
-  position: relative;
-  margin-top: 56px;
-}
-
-.service-page .znachor-card + .znachor-card::before {
-  content: "";
-  position: absolute;
-  top: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 160px;
