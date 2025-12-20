@@ -1,13 +1,14 @@
 /*
 Theme Name: Robo Znachor Premium
-Description: Optimized & Consolidated
-Version: 3.0
+Description: Formularz kontaktowy – FINAL (Choice Cards + Lux Button)
+Author: ChatGPT
+Version: 2.2
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 /* ===============================
-   GLOBAL
+GLOBAL
 ================================ */
 html, body {
   max-width: 100%;
@@ -19,36 +20,39 @@ body {
   background: #0f0f1a;
   color: #e0e0e0;
   margin: 0;
-  padding-top: 64px;
+  padding-top: 56px;
+  line-height: 1.2;
 }
 
-* { box-sizing: border-box; }
+/* ===============================
+WRAPPER
+================================ */
+.znachor-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 14px 40px 14px;
+}
+
+.znachor-wrapper * {
+  box-sizing: border-box;
+}
 
 /* ===============================
-   HEADER - CONSOLIDATED
+HEADER
 ================================ */
 .robo-header {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 9999;
-  height: 64px;
   overflow: visible;
   backdrop-filter: blur(10px);
   background: rgba(10,10,20,0.92);
+  transition: none;
 }
 
-.robo-header::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: -40px;
-  height: 40px;
-  pointer-events: none;
-  background: linear-gradient(to bottom, rgba(15,15,26,0.95), rgba(15,15,26,0));
-}
-
-.robo-header-inner {
+.robo-header.inner {
   position: relative;
-  height: 64px;
+  height: 56px;
 }
 
 .robo-container {
@@ -57,58 +61,31 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 12px;
-}
-
-.robo-logo {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(1%);
-  z-index: 2;
-  display: block !important;
-}
-
-.robo-logo img {
-  height: 400px;
-  filter: drop-shadow(0 16px 34px rgba(0,0,0,.6)) drop-shadow(0 0 26px rgba(0,212,255,.35));
+  gap: 8px;
 }
 
 .robo-nav {
-  display: flex !important;
+  display: flex;
   gap: 8px;
-  z-index: 3;
-  align-items: center;
   max-width: 520px;
+  z-index: 3;
+  position: relative;
 }
 
 .robo-nav a {
-  position: relative;
-  padding: 6px 14px;
   font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.2;
+  letter-spacing: 0;
+  padding: 6px 14px;
   border-radius: 999px;
-  text-decoration: none !important;
-  white-space: nowrap;
   background: rgba(255,255,255,.06);
   border: 1px solid rgba(255,255,255,.08);
   color: #e6f9ff;
+  text-decoration: none;
   backdrop-filter: blur(8px);
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.02), 0 6px 18px rgba(0,0,0,.35);
   transition: background .25s ease, box-shadow .25s ease, transform .25s ease;
-  overflow: hidden;
-}
-
-.robo-nav a::after {
-  content: '';
-  position: absolute;
-  left: 14px; right: 14px; bottom: 6px;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, #00d4ff, #00ffea);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .28s ease;
 }
 
 .robo-nav a:hover {
@@ -117,21 +94,59 @@ body {
   transform: translateY(-1px);
 }
 
-.robo-nav a:hover::after,
-.robo-nav a.active::after {
-  transform: scaleX(1);
-}
-
+.robo-nav a:active,
 .robo-nav a.active {
   background: rgba(0,212,255,.35);
   color: #ffffff;
   box-shadow: 0 0 0 1px rgba(0,212,255,.6), 0 12px 32px rgba(0,212,255,.55);
 }
 
-.robo-header, .robo-header * {
-  font-family: 'Poppins', sans-serif !important;
-  line-height: 1.2;
-  letter-spacing: 0;
+.robo-nav a::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #00d4ff, #00ffea);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .28s ease;
+}
+
+.robo-nav a:hover::after,
+.robo-nav a.active::after {
+  transform: scaleX(1);
+  box-shadow: 0 0 10px rgba(0,212,255,.6);
+}
+
+.robo-logo {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-20%);
+  z-index: 2;
+}
+
+.robo-header .gradient-fade::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(15,15,26,0.95), rgba(15,15,26,0));
+}
+
+.robo-header.is-scrolled .robo-header-inner {
+  height: 56px;
+}
+
+.robo-header.is-scrolled .robo-nav a {
+  padding: 6px 14px;
+  font-size: 0.9rem;
 }
 
 header.wp-block-template-part {
@@ -143,18 +158,80 @@ header.wp-block-template-part {
 header.wp-block-template-part::before,
 header.wp-block-template-part::after {
   display: none !important;
+  content: none !important;
+}
+
+/* Desktop-specific */
+@media (min-width: 769px) {
+  .robo-logo {
+    transform: translateY(1%);
+  }
+
+  .robo-logo img {
+    height: 400px;
+    filter: drop-shadow(0 16px 34px rgba(0,0,0,.6)) drop-shadow(0 0 26px rgba(0,212,255,.35));
+  }
+
+  .robo-header-inner {
+    height: 64px;
+  }
+
+  .robo-nav a {
+    padding: 6px 14px;
+  }
+
+  body {
+    padding-top: 64px !important;
+  }
+
+  .robo-logo {
+    display: none;
+  }
+}
+
+/* Mobile-specific */
+@media (max-width: 768px) {
+  .robo-container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .robo-nav {
+    gap: 6px;
+    max-width: calc(100% - 64px);
+    margin-right: 64px;
+  }
+
+  .robo-nav a {
+    font-size: 0.82rem;
+    padding: 5px 9px;
+    line-height: 1.1;
+  }
+
+  .robo-header-inner,
+  .robo-header,
+  .robo-header-inner {
+    height: 58px;
+  }
+
+  .robo-logo {
+    right: -15px;
+    transform: translateY(-13%);
+  }
+
+  .robo-logo img {
+    height: 210px;
+    filter: drop-shadow(0 12px 26px rgba(0,0,0,.55)) drop-shadow(0 0 20px rgba(0,212,255,.3));
+  }
+
+  body {
+    padding-top: 58px !important;
+  }
 }
 
 /* ===============================
-   LAYOUT
+HEADER TITLE
 ================================ */
-.znachor-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 14px 40px;
-  padding-top: 120px;
-}
-
 .znachor-header {
   text-align: center;
   margin-bottom: 24px;
@@ -171,6 +248,9 @@ header.wp-block-template-part::after {
   color: #bbb;
 }
 
+/* ===============================
+CARD
+================================ */
 .znachor-card {
   background: rgba(26,26,46,.92);
   border-radius: 26px;
@@ -180,7 +260,7 @@ header.wp-block-template-part::after {
 }
 
 /* ===============================
-   FORMS
+INPUTS
 ================================ */
 .znachor-form-inner input,
 .znachor-form-inner textarea {
@@ -192,7 +272,7 @@ header.wp-block-template-part::after {
   border-radius: 14px;
   color: #fff;
   font-size: 1.05rem;
-  transition: border-color .2s, box-shadow .2s, background .2s;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
 .znachor-form-inner input::placeholder,
@@ -214,7 +294,7 @@ header.wp-block-template-part::after {
 }
 
 /* ===============================
-   CHOICE CARDS
+CHOICE CARDS
 ================================ */
 .zn-choice-wrapper {
   display: grid;
@@ -231,14 +311,20 @@ header.wp-block-template-part::after {
   background: rgba(26,26,46,.75);
   border: 1px solid rgba(0,212,255,.28);
   cursor: pointer;
-  transition: all .2s;
+  transition: all .2s ease;
 }
 
 .zn-choice input[type="radio"] {
   appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   position: absolute;
   inset: 0;
-  width: 0; height: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
   opacity: 0;
   pointer-events: none;
 }
@@ -263,7 +349,8 @@ header.wp-block-template-part::after {
 .zn-choice:has(input:checked)::after {
   content: "✓";
   position: absolute;
-  top: 50%; right: 16px;
+  top: 50%;
+  right: 16px;
   transform: translateY(-50%);
   font-size: 1.1rem;
   font-weight: 700;
@@ -271,12 +358,12 @@ header.wp-block-template-part::after {
 }
 
 /* ===============================
-   BUTTONS
+SUBMIT BUTTON
 ================================ */
 .zn-btn {
   width: 100%;
-  margin-top: 18px;
   height: 56px;
+  margin-top: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -288,7 +375,7 @@ header.wp-block-template-part::after {
   background: linear-gradient(90deg, #00d4ff, #00ffea);
   border: none;
   cursor: pointer;
-  transition: transform .2s, box-shadow .2s;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
 .zn-btn:hover {
@@ -296,11 +383,18 @@ header.wp-block-template-part::after {
   box-shadow: 0 14px 34px rgba(0,212,255,.55);
 }
 
+.zn-btn-text {
+  display: flex;
+  align-items: center;
+}
+
 .zn-btn-arrow {
   font-size: 1.8em;
   line-height: 1;
+  display: flex;
+  align-items: center;
   transform: translateY(-1px);
-  transition: transform .2s;
+  transition: transform .2s ease;
 }
 
 .zn-btn:hover .zn-btn-arrow {
@@ -308,123 +402,63 @@ header.wp-block-template-part::after {
 }
 
 /* ===============================
-   SERVICES (HOME)
+MOBILE ADJUSTMENTS
 ================================ */
-.services-section {
-  max-width: 900px;
-  margin: 80px auto;
-  padding: 0 16px;
-  overflow: visible;
-}
+@media (max-width: 600px) {
+  .znachor-card {
+    padding: 22px 16px 26px;
+  }
 
-.services-header {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 56px;
-  padding: 56px 32px 52px;
-  border-radius: 32px;
-  text-align: center;
-  background: radial-gradient(160% 90% at 50% 30%, rgba(0,212,255,.28), transparent 65%), linear-gradient(180deg, rgba(22,30,52,.88), rgba(14,20,36,.95));
-  backdrop-filter: blur(14px) saturate(1.15);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 26px 60px rgba(0,0,0,.6);
-}
+  .zn-btn {
+    height: 52px;
+    font-size: 1.5rem;
+  }
 
-.services-title {
-  font-size: clamp(2rem, 6vw, 2.6rem);
-  font-weight: 700;
-  color: #f2fbff;
-  margin-bottom: 14px;
-}
+  .zn-btn-arrow {
+    transform: translateY(-6px);
+  }
 
-.services-subtitle {
-  font-size: 1.05rem;
-  color: rgba(230,240,255,.75);
-}
-
-.services-grid {
-  display: grid;
-  gap: 20px;
-}
-
-.service-card {
-  position: relative;
-  min-height: 138px;
-  padding: 28px 22px;
-  border-radius: 22px;
-  background: linear-gradient(180deg, rgba(20,26,46,.95), rgba(12,16,30,.95));
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 14px 32px rgba(0,0,0,.45);
-  text-align: center;
-  cursor: pointer;
-  transition: transform .25s, box-shadow .25s;
-}
-
-.service-name {
-  font-size: 1.22rem;
-  font-weight: 600;
-  color: #eaf6ff;
-  margin-bottom: 8px;
-}
-
-.service-desc {
-  font-size: 0.92rem;
-  line-height: 1.45;
-  color: rgba(234,246,255,.8);
-}
-
-.service-card:hover {
-  transform: translateY(-2px);
-}
-
-.service-card.featured {
-  padding-top: 46px;
-  background: linear-gradient(180deg, rgba(0,212,255,.28), rgba(12,16,30,.95) 65%);
-  box-shadow: inset 0 0 0 1px rgba(0,212,255,.35), 0 18px 40px rgba(0,212,255,.35);
-  overflow: visible;
-}
-
-.service-card.featured .service-badge {
-  position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 5px 14px;
-  font-size: 0.6rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: rgba(0,35,40,.85);
-  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(235,245,245,0.45));
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.35);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 4px 10px rgba(0,0,0,0.25), 0 10px 24px rgba(0,212,255,0.25);
-  z-index: 5;
+  .zn-btn:hover .zn-btn-arrow {
+    transform: translate(13px, -6px);
+  }
 }
 
 /* ===============================
-   CTA SECTION
+CTA SECTION
 ================================ */
 .lux-cta {
+  max-width: 720px;
   margin: 90px auto;
-  max-width: 620px;
-  padding: 64px 32px 60px;
+  padding: 54px 40px 60px;
+  border-radius: 30px;
+  background: radial-gradient(120% 140% at 50% 0%, rgba(0,212,255,.12), transparent 60%), rgba(18,22,40,.92);
+  border: 1px solid rgba(0,212,255,.25);
+  box-shadow: 0 30px 80px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.02);
   text-align: center;
-  border-radius: 36px;
-  background: radial-gradient(140% 90% at 50% 0%, rgba(0,212,255,.22), transparent 65%), linear-gradient(180deg, rgba(20,30,52,.9), rgba(12,18,32,.96));
-  backdrop-filter: blur(16px);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 30px 70px rgba(0,0,0,.65);
+  animation: ctaFadeUp .7s ease-out both;
+}
+
+.lux-cta-eyebrow {
+  font-size: .85rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(155,231,255,.85);
+  margin-bottom: 18px;
 }
 
 .lux-cta-title {
-  font-size: clamp(2rem, 6vw, 2.6rem);
-  font-weight: 700;
-  color: #f2fbff;
-  margin-bottom: 36px;
+  font-size: clamp(1.9rem, 5vw, 2.5rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 44px;
+  line-height: 1.25;
 }
 
 .lux-cta-actions {
   display: flex;
   flex-direction: column;
   gap: 28px;
+  align-items: center;
 }
 
 .cta-btn {
@@ -439,94 +473,60 @@ header.wp-block-template-part::after {
   font-size: 1.05rem;
   font-weight: 600;
   text-decoration: none;
-  transition: transform .25s, box-shadow .25s;
+  white-space: nowrap;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+  box-shadow: 0 14px 40px rgba(0,0,0,.35);
 }
 
 .cta-primary {
-  background: linear-gradient(90deg,#00d4ff,#00ffea);
+  background: linear-gradient(90deg, #00d4ff, #00ffea);
   color: #000;
 }
 
+.cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 50px rgba(0,212,255,.45);
+}
+
 .cta-phone {
+  background: linear-gradient(180deg, rgba(0,200,235,.35), rgba(0,140,190,.28));
+  border: 1px solid rgba(0,212,255,.55);
+  color: #e9fbff;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04), 0 10px 28px rgba(0,140,180,.35);
+  backdrop-filter: blur(6px);
+}
+
+.cta-phone:hover {
   background: linear-gradient(180deg, rgba(0,212,255,.28), rgba(0,212,255,.14));
-  color: #fff;
-  border: 1px solid rgba(255,255,255,.18);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 42px rgba(0,212,255,.35);
 }
 
 .cta-whatsapp {
-  background: linear-gradient(90deg,#2adf77,#6aff9b);
+  background: linear-gradient(90deg, #2adf77, #6aff9b);
   color: #032b12;
 }
 
-.cta-btn:hover {
+.cta-whatsapp:hover {
   transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(37,211,102,.45);
 }
 
-/* ===============================
-   MOBILE
-================================ */
-@media (max-width: 768px) {
-  body {
-    padding-top: 58px !important;
+.cta-icon,
+.cta-arrow {
+  font-size: 1.2em;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+@keyframes ctaFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
   }
-  
-  .robo-header,
-  .robo-header-inner {
-    height: 58px;
-  }
-  
-  .robo-container {
-    padding: 0 8px;
-  }
-  
-  .robo-nav {
-    gap: 6px;
-    margin-right: 64px;
-  }
-  
-  .robo-nav a {
-    font-size: 0.82rem;
-    padding: 5px 9px;
-  }
-  
-  .robo-logo {
-    right: -15px;
-    transform: translateY(-13%);
-  }
-  
-  .robo-logo img {
-    height: 210px;
-  }
-  
-  .znachor-card {
-    padding: 22px 16px 26px;
-  }
-  
-  .zn-btn {
-    height: 52px;
-    font-size: 1.5rem;
-  }
-  
-  .zn-btn-arrow {
-    transform: translateY(-6px);
-  }
-  
-  .zn-btn:hover .zn-btn-arrow {
-    transform: translate(13px, -6px);
-  }
-  
-  .service-card {
-    min-height: 124px;
-    padding: 24px 20px;
-  }
-  
-  .lux-cta {
-    padding: 54px 24px 50px;
-  }
-  
-  .cta-btn {
-    height: 58px;
-    font-size: .95rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -535,10 +535,352 @@ header.wp-block-template-part::after {
     padding: 42px 20px 48px;
     margin: 70px 14px;
   }
+
+  .lux-cta-title {
+    font-size: 1.9rem;
+  }
+
+  .cta-btn {
+    height: 58px;
+    font-size: .95rem;
+  }
 }
 
 /* ===============================
-   STATS COUNTER
+IT'S WORKING ON PAGE HERO ANIMATION
+================================ */
+.services-header {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 56px;
+  padding: 56px 32px 52px;
+  border-radius: 34px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(18,20,28,.88), rgba(10,12,18,.92)), radial-gradient(120% 120% at 50% -30%, rgba(120,200,255,.10), rgba(0,0,0,0) 60%);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 30px 80px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.06), inset 0 -1px 0 rgba(0,0,0,.6);
+  backdrop-filter: blur(14px) saturate(1.15);
+  --light-x: 50%;
+  --light-y: 30%;
+}
+
+.services-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+.services-header::before {
+  content: "";
+  position: absolute;
+  inset: -40% -30% auto -30%;
+  height: 180%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(45% 35% at var(--light-x) var(--light-y), rgba(0,212,255,0.28), rgba(0,160,200,0.14) 30%, rgba(0,0,0,0) 60%);
+  opacity: 0.9;
+  transition: opacity .4s ease;
+}
+
+.services-title {
+  font-size: clamp(2rem, 6vw, 2.6rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.services-subtitle {
+  font-size: 1.05rem;
+  color: rgba(220,235,245,.7);
+}
+
+.services-header::after {
+  content: "";
+  display: block;
+  width: 110px;
+  height: 2px;
+  margin: 26px auto 0;
+  background: linear-gradient(90deg, transparent, rgba(120,200,255,.6), transparent);
+  border-radius: 2px;
+}
+
+/* ===============================
+SERVICES GRID
+================================ */
+.services-grid {
+  display: grid;
+  gap: 26px;
+  overflow: visible;
+}
+
+.service-card {
+  position: relative;
+  padding: 32px 24px;
+  min-height: unset;
+  border-radius: 26px;
+  text-align: center;
+  overflow: hidden;
+  background: 0 16px 44px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.035);
+  isolation: isolate;
+  contain: paint;
+  cursor: pointer;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.service-card.featured {
+  box-shadow: 0 22px 60px rgba(0,0,0,.65), inset 0 0 0 1px rgba(120,200,255,.18);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+}
+
+.service-card.featured:hover {
+  transform: translateY(-6px);
+  box-shadow: inset 0 0 0 1px rgba(0,212,255,.45), 0 30px 70px rgba(0,212,255,.35);
+}
+
+.service-name {
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: #eafaff;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.service-card.featured .service-name {
+  font-size: 1.55rem;
+}
+
+.service-desc {
+  font-size: .95rem;
+  line-height: 1.55;
+  color: rgba(230,240,255,.75);
+  margin-top: 10px;
+}
+
+.service-card.featured .service-badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 14px;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(0,35,40,0.85);
+  background: rgba(230,245,245,0.85);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), inset 0 -1px 0 rgba(0,0,0,0.06), 0 4px 10px rgba(0,0,0,0.25), 0 10px 24px rgba(0,212,255,0.25);
+  backdrop-filter: blur(8px) saturate(130%);
+  -webkit-backdrop-filter: blur(8px) saturate(130%);
+  overflow: hidden;
+  animation: badgeFloat 6s ease-in-out infinite;
+  z-index: 5;
+}
+
+.service-card.featured .service-badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+.service-card.featured:hover .service-badge {
+  animation: none;
+}
+
+@keyframes badgeFloat {
+  0% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -0.5px); }
+  100% { transform: translate(-50%, 0); }
+}
+
+.services-footnote {
+  margin-top: 48px;
+  text-align: center;
+  font-size: 1rem;
+  color: rgba(234,246,255,.7);
+  line-height: 1.6;
+}
+
+/* ===============================
+SERVICE PAGE
+================================ */
+.service-page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 40px 16px 80px;
+}
+
+.service-page .znachor-card {
+  margin-bottom: 36px;
+  padding: 40px 36px 44px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015) 22%, rgba(0,0,0,0.55)), linear-gradient(180deg, rgba(18,24,40,0.96), rgba(10,14,26,0.98));
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), inset 0 -1px 0 rgba(0,0,0,0.55), 0 30px 80px rgba(0,0,0,0.65);
+}
+
+.service-page .znachor-card:first-of-type {
+  padding: 56px 44px 58px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02) 28%, rgba(0,0,0,0.65)), linear-gradient(180deg, rgba(22,30,52,0.97), rgba(12,18,32,0.98));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), inset 0 -1px 0 rgba(0,0,0,0.65), 0 40px 100px rgba(0,0,0,0.75);
+  overflow: visible;
+}
+
+.service-page .znachor-card:first-of-type::after {
+  content: "13 LAT DOŚWIADCZENIA";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 16px;
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgba(15,30,35,0.9);
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(235,245,245,0.75));
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 6px 18px rgba(0,0,0,0.35), 0 0 24px rgba(0,212,255,0.25);
+  backdrop-filter: blur(6px) saturate(120%);
+  z-index: 3;
+}
+
+.service-page h1 {
+  font-size: clamp(2.3rem, 6vw, 3.1rem);
+  margin-bottom: 18px;
+  color: #f6fbff;
+  letter-spacing: -0.02em;
+}
+
+.service-page h2 {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  color: #eef6ff;
+  letter-spacing: -0.01em;
+}
+
+.service-page p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(225,235,245,0.88);
+}
+
+.service-page strong {
+  color: #ffffff;
+}
+
+.service-page ul {
+  margin-top: 18px;
+  padding-left: 22px;
+}
+
+.service-page li {
+  margin-bottom: 10px;
+  color: rgba(230,240,255,0.9);
+}
+
+.service-page .znachor-card + .znachor-card::before {
+  content: "";
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 1px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, transparent, rgba(220,255,255,0.55), rgba(255,255,255,0.9), rgba(220,255,255,0.55), transparent);
+  box-shadow: 0 0 10px rgba(0,212,255,0.35);
+  opacity: 0.7;
+}
+
+.service-page .service-choice {
+  margin-top: 72px;
+  padding: 32px 26px;
+  border-radius: 32px;
+  background: radial-gradient(120% 80% at 50% -20%, rgba(0,212,255,0.18), transparent 65%), linear-gradient(180deg, rgba(18,26,46,.94), rgba(12,18,32,.98));
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 28px 70px rgba(0,0,0,.65);
+  display: grid;
+  gap: 18px;
+}
+
+.service-page .service-choice::before {
+  content: "";
+  display: block;
+  width: 140px;
+  height: 2px;
+  margin: 0 auto 32px;
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,.7), transparent);
+  box-shadow: 0 0 12px rgba(0,212,255,.45);
+}
+
+.service-page .choice-card {
+  height: 108px;
+  border-radius: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.service-page .choice-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.service-page .choice-desc {
+  font-size: .95rem;
+  opacity: .85;
+  margin-top: 6px;
+}
+
+.service-page .choice-card.primary {
+  background: linear-gradient(135deg, #00f0ff, #00ffd5);
+  color: #001616;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 16px 42px rgba(0,255,240,.45);
+  transform: translateY(-2px);
+}
+
+.service-page .choice-card.primary:hover {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.85), 0 24px 60px rgba(0,255,240,.55);
+}
+
+.service-page .choice-card.phone {
+  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04), 0 14px 34px rgba(0,0,0,.55);
+}
+
+.service-page .choice-card.phone:hover {
+  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
+  transform: translateY(-3px);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), 0 22px 50px rgba(0,0,0,.65);
+}
+
+.service-page .service-choice .is-visible .choice-card.primary {
+  animation: ctaGlowOnce 1.4s ease-out both;
+}
+
+@keyframes ctaGlowOnce {
+  0% { box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 0 0 rgba(0,255,240,0); }
+  40% { box-shadow: inset 0 1px 0 rgba(255,255,255,.85), 0 0 38px rgba(0,255,240,.55); }
+  100% { box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 16px 42px rgba(0,255,240,.45); }
+}
+
+/* ===============================
+STATS COUNTER
 ================================ */
 .stats-counter {
   margin: 72px auto;
@@ -549,55 +891,16 @@ header.wp-block-template-part::after {
   background: radial-gradient(140% 90% at 50% -20%, rgba(0,212,255,.25), transparent 60%), linear-gradient(180deg, rgba(18,28,48,.94), rgba(12,18,32,.98));
   backdrop-filter: blur(14px) saturate(1.15);
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.06), 0 28px 70px rgba(0,0,0,.65);
-  transition: box-shadow .6s, transform .6s;
+  isolation: isolate;
+  transition: box-shadow .6s ease, transform .6s ease;
 }
 
-.stats-eyebrow {
-  font-size: .85rem;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: rgba(200,240,255,.7);
-  margin-bottom: 16px;
-}
-
-.stats-number,
-.stats-counter #licznik {
-  font-size: clamp(3.8rem, 9vw, 5rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: #00f0ff;
-  line-height: 1;
-}
-
-.stats-plus {
-  font-size: .45em;
-  vertical-align: super;
-  margin-left: 4px;
-}
-
-.stats-label {
-  margin-top: 18px;
-  font-size: 1.05rem;
-  color: rgba(230,240,255,.75);
-}
-
-.stats-counter::after {
-  content: "";
-  display: block;
-  width: 140px;
-  height: 2px;
-  margin: 32px auto 0;
-  background: linear-gradient(90deg, transparent, rgba(0,212,255,.75), transparent);
-  box-shadow: 0 0 14px rgba(0,212,255,.45);
-}
-
-/* Counter animations */
 .stats-counter.is-counting {
   box-shadow: inset 0 0 0 1px rgba(0,212,255,.18), 0 0 0 1px rgba(0,212,255,.25), 0 18px 50px rgba(0,212,255,.35), 0 0 90px rgba(0,212,255,.25);
   transform: translateY(-1px);
 }
 
-.stats-counter.is-counting .stats-number {
+.stats-counter.is-counting #licznik {
   text-shadow: 0 0 12px rgba(0,212,255,.55), 0 0 32px rgba(0,212,255,.35);
 }
 
@@ -620,215 +923,46 @@ header.wp-block-template-part::after {
   }
 }
 
-/* ===============================
-   SERVICE PAGE
-================================ */
-.service-page {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 40px 16px 80px;
-}
-
-.service-page .znachor-card {
-  position: relative;
-  margin-bottom: 36px;
-  padding: 40px 36px 44px;
-  border-radius: 28px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015) 22%, rgba(0,0,0,0.55)), linear-gradient(180deg, rgba(18,24,40,0.96), rgba(10,14,26,0.98));
-  border: 1px solid rgba(255,255,255,0.10);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), inset 0 -1px 0 rgba(0,0,0,0.55), 0 30px 80px rgba(0,0,0,0.65);
-}
-
-/* Hero card (first) */
-.service-page .znachor-card:first-of-type {
-  padding: 56px 44px 58px;
-  border-radius: 34px;
-  overflow: visible;
-  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02) 28%, rgba(0,0,0,0.65)), linear-gradient(180deg, rgba(22,30,52,0.97), rgba(12,18,32,0.98));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), inset 0 -1px 0 rgba(0,0,0,0.65), 0 40px 100px rgba(0,0,0,0.75);
-}
-
-/* Experience badge */
-.service-page .znachor-card:first-of-type::after {
-  content: "13 LAT DOŚWIADCZENIA";
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  padding: 6px 16px;
-  font-size: 0.62rem;
-  letter-spacing: 0.22em;
+.stats-counter p:first-child {
+  font-size: .85rem;
+  letter-spacing: .22em;
   text-transform: uppercase;
-  font-weight: 600;
-  color: rgba(15,30,35,0.9);
-  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(235,245,245,0.75));
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.45);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 6px 18px rgba(0,0,0,0.35), 0 0 24px rgba(0,212,255,0.25);
-  backdrop-filter: blur(6px) saturate(120%);
-}
-
-/* Card dividers */
-.service-page .znachor-card + .znachor-card {
-  margin-top: 56px;
-}
-
-.service-page .znachor-card + .znachor-card::before {
-  content: "";
-  position: absolute;
-  top: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 160px;
-  height: 1px;
-  border-radius: 1px;
-  background: linear-gradient(90deg, transparent, rgba(220,255,255,0.55), rgba(255,255,255,0.9), rgba(220,255,255,0.55), transparent);
-  box-shadow: 0 0 10px rgba(0,212,255,0.35);
-  opacity: 0.7;
-}
-
-/* Typography */
-.service-page h1 {
-  font-size: clamp(2.3rem, 6vw, 3.1rem);
-  margin-bottom: 18px;
-  color: #f6fbff;
-  letter-spacing: -0.02em;
-}
-
-.service-page h2 {
-  font-size: 1.6rem;
+  color: rgba(200,240,255,.7);
   margin-bottom: 16px;
-  color: #eef6ff;
-  letter-spacing: -0.01em;
 }
 
-.service-page p,
-.service-page li {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: rgba(225,235,245,0.88);
+.stats-counter #licznik {
+  font-size: clamp(3.8rem, 9vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #00f0ff;
+  line-height: 1;
 }
 
-.service-page strong {
-  color: #ffffff;
+.stats-counter #licznik + span {
+  font-size: .45em;
+  vertical-align: super;
+  margin-left: 4px;
 }
 
-.service-page ul {
+.stats-counter p:last-child {
   margin-top: 18px;
-  padding-left: 22px;
+  font-size: 1.05rem;
+  color: rgba(230,240,255,.75);
 }
 
-.service-page li {
-  margin-bottom: 10px;
-  color: rgba(230,240,255,0.9);
-}
-
-/* Last card (CTA styling) */
-.service-page .znachor-card:last-of-type {
-  background: radial-gradient(120% 80% at 50% -20%, rgba(0,212,255,0.14), transparent 60%), linear-gradient(180deg, rgba(18,26,44,0.96), rgba(10,14,26,0.98));
-  box-shadow: inset 0 0 0 1px rgba(0,212,255,0.18), 0 34px 90px rgba(0,0,0,0.75);
-}
-
-/* ===============================
-   SERVICE CHOICE CARDS (CTA)
-================================ */
-.service-choice {
-  margin-top: 72px;
-  margin-bottom: 40px;
-  padding: 32px 26px;
-  border-radius: 32px;
-  background: radial-gradient(120% 80% at 50% -20%, rgba(0,212,255,0.18), transparent 65%), linear-gradient(180deg, rgba(18,26,46,.94), rgba(12,18,32,.98));
-  border: 1px solid rgba(255,255,255,.08);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 28px 70px rgba(0,0,0,.65);
-  display: grid;
-  gap: 18px;
-}
-
-.service-choice::before {
+.stats-counter::after {
   content: "";
   display: block;
   width: 140px;
   height: 2px;
-  margin: 0 auto 32px;
-  background: linear-gradient(90deg, transparent, rgba(0,212,255,.7), transparent);
-  box-shadow: 0 0 12px rgba(0,212,255,.45);
-}
-
-.choice-card {
-  height: 108px;
-  border-radius: 26px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  text-decoration: none !important;
-  transition: transform .3s, box-shadow .3s, background .3s;
-}
-
-.choice-title {
-  font-size: 1.15rem;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.choice-desc {
-  font-size: .95rem;
-  opacity: .85;
-  margin-top: 6px;
-}
-
-/* Primary button */
-.choice-card.primary {
-  background: linear-gradient(135deg, #00f0ff, #00ffd5);
-  color: #001616;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 16px 42px rgba(0,255,240,.45);
-}
-
-.choice-card.primary .choice-title,
-.choice-card.primary .choice-desc {
-  transform: translateY(-2px);
-}
-
-.choice-card.primary:hover {
-  transform: translateY(-3px);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.85), 0 24px 60px rgba(0,255,240,.55);
-}
-
-/* Phone button */
-.choice-card.phone {
-  background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
-  color: #ffffff;
-  border: 1px solid rgba(255,255,255,.18);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04), 0 14px 34px rgba(0,0,0,.55);
-}
-
-.choice-card.phone:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), 0 22px 50px rgba(0,0,0,.65);
-}
-
-/* CTA glow animation */
-@keyframes ctaGlowOnce {
-  0% {
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 0 0 rgba(0,255,240,0);
-  }
-  40% {
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.85), 0 0 38px rgba(0,255,240,.55);
-  }
-  100% {
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 16px 42px rgba(0,255,240,.45);
-  }
-}
-
-.service-choice.is-visible .choice-card.primary {
-  animation: ctaGlowOnce 1.4s ease-out both;
+  margin: 32px auto 0;
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,.75), transparent);
+  box-shadow: 0 0 14px rgba(0,212,255,.45);
 }
 
 /* ===============================
-   ABOUT PAGE
+ABOUT PHOTO
 ================================ */
 main div[style*="text-align: center"] img {
   display: block;
@@ -837,8 +971,15 @@ main div[style*="text-align: center"] img {
   border-radius: 24px;
 }
 
+@media (max-width: 768px) {
+  main div[style*="text-align: center"] img {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
 /* ===============================
-   WHATSAPP BUTTON
+WHATSAPP FLOATING
 ================================ */
 #wa-floating-root {
   position: fixed;
@@ -861,238 +1002,89 @@ main div[style*="text-align: center"] img {
   box-shadow: 0 8px 30px rgba(0,0,0,.45);
 }
 
-.whatsapp-button,
-a[href*="wa.me"] {
-  z-index: 9 !important;
-}
-
 /* ===============================
-   PAGE-SPECIFIC SPACING
-================================ */
-.home main {
-  padding-top: 48px;
-}
-
-.page-id-48 main {
-  padding-top: 48px;
-}
-
-body.home .services-section {
-  padding-top: 40px;
-}
-
-/* Home page service header styling */
-body.home .services-header {
-  background: linear-gradient(180deg, rgba(18,20,28,.88), rgba(10,12,18,.92)), radial-gradient(120% 120% at 50% -30%, rgba(120,200,255,.10), rgba(0,0,0,0) 60%);
-  border-radius: 34px;
-  padding: 48px 32px 44px;
-  box-shadow: 0 30px 80px rgba(0,0,0,.65), inset 0 1px 0 rgba(255,255,255,.06), inset 0 -1px 0 rgba(0,0,0,.6);
-  border: 1px solid rgba(255,255,255,.08);
-}
-
-body.home .services-title {
-  color: #ffffff;
-  letter-spacing: .4px;
-}
-
-body.home .services-subtitle {
-  color: rgba(220,235,245,.7);
-}
-
-body.home .services-header::after {
-  width: 110px;
-  background: linear-gradient(90deg, transparent, rgba(120,200,255,.6), transparent);
-}
-
-body.home .service-card {
-  padding: 32px 24px;
-  min-height: unset;
-  box-shadow: 0 16px 44px rgba(0,0,0,.55), inset 0 0 0 1px rgba(255,255,255,.035);
-}
-
-body.home .service-card.featured {
-  box-shadow: 0 22px 60px rgba(0,0,0,.65), inset 0 0 0 1px rgba(120,200,255,.18);
-}
-
-body.home .service-name {
-  font-size: 1.55rem;
-}
-
-body.home .service-desc {
-  font-size: .95rem;
-  line-height: 1.55;
-  margin-top: 10px;
-}
-
-body.home .service-badge {
-  background: rgba(255,255,255,.14);
-  color: #ffffff;
-  backdrop-filter: blur(6px);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 6px 18px rgba(0,0,0,.35);
-}
-
-/* ===============================
-   MOBILE RESPONSIVE
+EXTRA MOBILE
 ================================ */
 @media (max-width: 768px) {
-  body {
-    padding-top: 58px !important;
-  }
-  
-  .robo-header,
-  .robo-header-inner {
-    height: 58px;
-  }
-  
-  .robo-container {
-    padding: 0 8px;
-  }
-  
-  .robo-nav {
-    gap: 6px;
-    margin-right: 64px;
-  }
-  
-  .robo-nav a {
-    font-size: 0.82rem;
-    padding: 5px 9px;
-  }
-  
-  .robo-logo {
-    right: -15px;
-    transform: translateY(-13%);
-  }
-  
-  .robo-logo img {
-    height: 210px;
-  }
-  
-  .znachor-card {
-    padding: 22px 16px 26px;
-    overflow: hidden;
-    margin-bottom: 80px;
-  }
-  
-  .zn-btn {
-    height: 52px;
-    font-size: 1.5rem;
-  }
-  
-  .zn-btn-arrow {
-    transform: translateY(-6px);
-  }
-  
-  .zn-btn:hover .zn-btn-arrow {
-    transform: translate(13px, -6px);
-  }
-  
-  .stats-counter {
-    padding: 44px 22px 40px;
-  }
-  
-  .services-header {
-    padding: 46px 24px 42px;
-  }
-  
-  .service-card {
-    min-height: 124px;
-    padding: 24px 20px;
-  }
-  
-  .service-card.featured {
-    padding-top: 42px;
-  }
-  
-  .service-card.featured .service-badge {
-    top: -12px;
-    padding: 7px 16px;
-    font-size: 0.6rem;
-  }
-  
-  .lux-cta {
-    padding: 54px 24px 50px;
-  }
-  
-  .cta-btn {
-    height: 58px;
-    font-size: .95rem;
-  }
-  
   .service-page {
     padding-top: 24px;
   }
-  
-  .service-page .znachor-card {
-    padding: 32px 24px 34px;
-    border-radius: 24px;
+
+  .service-page .znachor-card,
+  .service-card {
+    padding: 38px 22px 30px;
   }
-  
+
   .service-page .znachor-card:first-of-type {
     padding: 44px 28px 46px;
-    border-radius: 28px;
   }
-  
-  .service-page .znachor-card:first-of-type::after {
-    top: -12px;
-    padding: 5px 14px;
-    font-size: 0.6rem;
+
+  .service-page h1 {
+    font-size: 2.1rem;
   }
-  
-  .service-page .znachor-card + .znachor-card {
-    margin-top: 48px;
-  }
-  
+
   .service-page .znachor-card + .znachor-card::before {
     width: 120px;
     top: -24px;
   }
-  
-  .service-page h1 {
-    font-size: 2.1rem;
-  }
-  
-  .service-choice {
+
+  .service-page .service-choice {
     margin-top: 56px;
     padding: 26px 18px;
     gap: 16px;
   }
-  
-  .choice-card {
+
+  .service-page .choice-card {
     height: 96px;
   }
-  
-  .choice-title {
+
+  .service-page .choice-title {
     font-size: 1.05rem;
   }
-  
-  .choice-desc {
+
+  .service-page .choice-desc {
     font-size: .9rem;
   }
-  
-  .home main,
+
+  .service-card {
+    min-height: 190px;
+  }
+
+  .lux-cta {
+    margin: 70px 14px;
+  }
+
+  .stats-counter {
+    padding: 44px 22px 40px;
+  }
+
+  .services-header {
+    padding: 46px 24px 42px;
+  }
+
+  .znachor-card {
+    overflow: hidden;
+  }
+
+  body.home main,
   .page-id-48 main {
     padding-top: 70px;
-  }
-  
-  main div[style*="max-width: 1000px"] {
-    padding-left: 16px;
-    padding-right: 16px;
-    overflow-x: hidden;
-  }
-  
-  main div[style*="text-align: center"] img {
-    width: 100% !important;
-    max-width: 100% !important;
   }
 }
 
 @media (max-width: 600px) {
-  .lux-cta {
-    padding: 42px 20px 48px;
-    margin: 70px 14px;
-  }
-  
-  .lux-cta-title {
-    font-size: 1.9rem;
+  .stats-counter {
+    margin: 64px auto 64px;
   }
 }
+
+/* ===============================
+HOME SPECIFIC
+================================ */
+body.home .services-section {
+  padding-top: 40px;
+}
+
+/* ===============================
+ALL COMBINATIONS BELOW MAX WIDTH 768PX
+================================ */
