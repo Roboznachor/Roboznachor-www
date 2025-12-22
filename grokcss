@@ -18,7 +18,7 @@ html, body {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #0f0f1a;
+  background: #1a1a2a; /* Slightly less dark background */
   color: #e0e0e0;
   margin: 0;
   padding-top: 56px;
@@ -556,13 +556,13 @@ body.home .services-subtitle {
 
 body.home .services-grid {
   display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px; /* Equal spacing */
 }
 
 body.home .service-card {
   position: relative;
-  padding: 32px 24px;
+  padding: 16px 14px; /* Smaller padding for compactness */
   border-radius: 26px;
   text-align: center;
   background:
@@ -572,11 +572,16 @@ body.home .service-card {
       rgba(10, 14, 26, 0.95)
     );
   box-shadow:
-    0 16px 44px rgba(0, 0, 0, 0.55),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035),
+    0 16px 44px rgba(0, 0, 0, 0.55);
   transition:
     transform 0.35s ease,
     box-shadow 0.35s ease;
+  height: 160px; /* Equal height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 body.home .service-card:hover {
@@ -601,16 +606,21 @@ body.home .service-card.featured {
 }
 
 body.home .service-name {
-  font-size: 1.55rem;
+  font-size: 1.25rem; /* Smaller font for compactness */
   font-weight: 600;
   color: #ffffff;
+  margin-bottom: 4px;
+  text-align: center;
+  transform: translateY(-5px); /* Move text slightly higher */
 }
 
 body.home .service-desc {
-  font-size: 0.95rem;
-  line-height: 1.55;
-  margin-top: 10px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  margin-top: 6px;
   color: rgba(220, 235, 245, 0.7);
+  text-align: center;
+  transform: translateY(-5px); /* Move text slightly higher */
 }
 
 body.home .service-badge {
@@ -620,6 +630,256 @@ body.home .service-badge {
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
     0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+body.home .service-card.featured .service-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em; /* Tighter for better alignment */
+  line-height: 1;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(235, 245, 245, 0.4));
+  color: rgba(0, 30, 35, 0.9);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+body.home .service-card.featured .service-name {
+  color: #00eaff;
+  text-shadow: 0 0 14px rgba(0, 212, 255, 0.45);
+}
+
+/* New gradients for odkurzacze wodne and pionowe */
+body.home .service-card:not(.featured) {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(0, 0, 0, 0.4)
+    );
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 212, 255, 0.1),
+    0 6px 18px rgba(0, 212, 255, 0.2),
+    0 16px 44px rgba(0, 0, 0, 0.55);
+}
+
+/* ===============================
+HOME – SERVİCES HEADER PREMIUM METALLIC FIX
+================================ */
+body.home .services-header {
+  background:
+    radial-gradient(
+      140% 90% at var(--light-x, 50%) var(--light-y, 20%),
+      rgba(0, 212, 255, 0.32),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(22, 30, 52, 0.92),
+      rgba(14, 20, 36, 0.96)
+    );
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    inset 0 20px 40px rgba(255, 255, 255, 0.03),
+    0 30px 80px rgba(0, 0, 0, 0.75),
+    0 0 140px rgba(0, 212, 255, 0.28);
+}
+
+/* ===============================
+HOME – FEATURED SERVICE CARD FIX
+================================ */
+body.home .service-card.featured {
+  background:
+    radial-gradient(
+      120% 80% at 50% -10%,
+      rgba(0, 212, 255, 0.45),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(18, 36, 56, 0.96),
+      rgba(10, 16, 30, 0.98)
+    );
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 212, 255, 0.45),
+    0 30px 70px rgba(0, 212, 255, 0.35);
+}
+
+/* ===============================
+FEATURED BADGE – RESTORED
+================================ */
+body.home .service-card.featured .service-badge {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.65),
+      rgba(230, 245, 245, 0.45)
+    );
+  color: rgba(0, 35, 40, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 6px 18px rgba(0, 0, 0, 0.35),
+    0 10px 30px rgba(0, 212, 255, 0.35);
+}
+
+/* ===============================
+HOME – HERO SERVICES CARD (SPECIALIZED REPAIR)
+================================ */
+body.home .services-header.hero-premium {
+  position: relative;
+  margin-bottom: 48px;
+  padding: 64px 36px 60px;
+  border-radius: 36px;
+  background:
+    radial-gradient(
+      120% 80% at 50% -20%,
+      rgba(255, 255, 255, 0.14),
+      rgba(255, 255, 255, 0.03) 35%,
+      transparent 60%
+    ),
+    radial-gradient(
+      140% 90% at 50% 0%,
+      rgba(0, 212, 255, 0.35),
+      transparent 65%
+    ),
+    linear-gradient(
+      180deg,
+      #1a2f46,
+      #0b1324
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 30px 80px rgba(0, 0, 0, 0.75),
+    0 0 140px rgba(0, 212, 255, 0.35);
+  backdrop-filter: blur(16px) saturate(1.15);
+  -webkit-backdrop-filter: blur(16px) saturate(1.15);
+  text-align: center;
+  overflow: hidden;
+}
+
+body.home .services-header.hero-premium::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(
+      35% 35% at 50% 30%,
+      rgba(255, 255, 255, 0.18),
+      transparent 60%
+    );
+  opacity: 0.35;
+  animation: heroMetalGlow 18s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes heroMetalGlow {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-6%, 6%); }
+  100% { transform: translate(0, 0); }
+}
+
+body.home .services-header.hero-premium .services-title {
+  font-size: clamp(2.2rem, 5.5vw, 2.9rem);
+  font-weight: 700;
+  color: #f2fbff;
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 18px rgba(0, 212, 255, 0.35);
+}
+
+body.home .services-header.hero-premium .services-subtitle {
+  margin-top: 14px;
+  font-size: 1.05rem;
+  color: rgba(220, 235, 245, 0.75);
+}
+
+/* ===============================
+ FORCE HERO + CTA (OVERRIDE FINAL)
+================================ */
+body.home section.services-section > header.services-header.hero-premium {
+  background:
+    radial-gradient(
+      120% 80% at 50% -20%,
+      rgba(255, 255, 255, 0.14),
+      rgba(255, 255, 255, 0.03) 35%,
+      transparent 60%
+    ),
+    radial-gradient(
+      140% 90% at 50% 0%,
+      rgba(0, 212, 255, 0.38),
+      transparent 65%
+    ),
+    linear-gradient(
+      180deg,
+      #1b3550,
+      #0b1324
+    ) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 35px 90px rgba(0, 0, 0, 0.8),
+    0 0 160px rgba(0, 212, 255, 0.45) !important;
+}
+
+body.home section.services-section > header.services-header.hero-premium::before {
+  content: "" !important;
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(
+      35% 35% at 50% 30%,
+      rgba(255, 255, 255, 0.22),
+      transparent 60%
+    );
+  opacity: 0.4;
+  animation: heroMetalGlow 16s linear infinite;
+  pointer-events: none;
+}
+
+/* ===============================
+HERO – MOVING METALLIC GLOW (FINAL FIX)
+================================ */
+body.home section.services-section > header.services-header.hero-premium {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+body.home section.services-section > header.services-header.hero-premium::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  z-index: 0;
+  background:
+    radial-gradient(
+      35% 35% at 50% 30%,
+      rgba(255, 255, 255, 0.22),
+      transparent 60%
+    );
+  opacity: 0.45;
+  animation: heroMetalMove 14s linear infinite;
+  pointer-events: none;
+}
+
+body.home section.services-section > header.services-header.hero-premium > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes heroMetalMove {
+  0% { transform: translate(-6%, -6%); }
+  50% { transform: translate(6%, 6%); }
+  100% { transform: translate(-6%, -6%); }
 }
 
 /* ===============================
@@ -798,17 +1058,21 @@ CTA SECTION
   line-height: 1.15;
   text-decoration: none;
   white-space: nowrap;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
 }
 
 .cta-text {
   display: inline-flex;
   align-items: center;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .cta-arrow {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
 }
 
 .cta-primary {
@@ -816,15 +1080,32 @@ CTA SECTION
   color: #001014;
 }
 
+.cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.4);
+}
+
 .cta-phone {
   background: linear-gradient(180deg, rgba(0, 200, 235, 0.35), rgba(0, 140, 190, 0.28));
   color: #e9fbff;
+}
+
+.cta-phone:hover {
+  background: linear-gradient(180deg, rgba(0, 200, 235, 0.45), rgba(0, 140, 190, 0.35));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 140, 190, 0.3);
 }
 
 .cta-whatsapp {
   background: linear-gradient(90deg, #25D366, #6AFF9B);
   color: #032b12;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.cta-whatsapp:hover {
+  background: linear-gradient(90deg, #6AFF9B, #25D366);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
 }
 
 .lux-cta {
@@ -893,24 +1174,23 @@ CTA SECTION
   height: 1.25em;
   flex-shrink: 0;
   vertical-align: middle;
+  transform: translateY(0.02em);
 }
 
 .lux-cta .cta-phone .cta-svg,
 .lux-cta .cta-whatsapp .cta-svg,
 .lux-cta .cta-arrow .cta-svg {
-  transform: translateY(-0.05em);
+  transform: translateY(0.02em);
 }
 
 .lux-cta .cta-whatsapp .cta-svg {
   width: 1.6em;
   height: 1.6em;
-  transform: translateY(-0.12em);
 }
 
 .lux-cta .cta-arrow .cta-svg {
   width: 0.95em;
   height: 0.95em;
-  transform: translateY(-0.04em);
 }
 
 /* ===============================
@@ -976,16 +1256,12 @@ MEDIA QUERIES
 
   body.home .services-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 10px; /* Tighter gap for mobile */
   }
 
   body.home .service-card {
-    padding: 28px 24px;
-    min-height: 220px;
-  }
-
-  body.home .service-card.featured {
-    min-height: 240px;
+    padding: 12px 12px; /* Even smaller padding for mobile */
+    height: 140px; /* Smaller height for mobile */
   }
 
   body.home .services-section {
@@ -1025,6 +1301,6 @@ MEDIA QUERIES
 @media (min-width: 768px) {
   body.home .services-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    gap: 12px; /* Consistent small gap */
   }
 }
